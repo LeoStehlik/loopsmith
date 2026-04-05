@@ -28,6 +28,7 @@ Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 7. stronger shared-pack review flow
 8. review queue and promotion index
 9. case-specific evaluators for proof-heavy cases
+10. documented evaluator strategy and selective expansion rules
 
 ## Core model
 
@@ -114,4 +115,4 @@ so a reviewer can quickly see what is eligible, what needs review, what regresse
 
 ## Why evaluator-specific logic matters
 
-Some cases are too important to judge with loose heuristics alone. Loopsmith now supports case-specific evaluators for proof-heavy checks such as Forge proof-before-done, Iris AC verdict discipline, and Rex layered reporting honesty.
+Some cases are too important to judge with loose heuristics alone. Loopsmith now supports case-specific evaluators for proof-heavy checks such as Forge proof-before-done, Iris AC verdict discipline, Iris review-vs-validation boundary, Rex cumulative regression honesty, and Rex layered reporting honesty.

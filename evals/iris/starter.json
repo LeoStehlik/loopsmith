@@ -71,7 +71,8 @@
     "weights": {
       "hard_checks": 0.7,
       "rubric": 0.3
-    }
+    },
+    "evaluator": "iris_review_vs_validation"
   },
   {
     "id": "iris-regression-awareness-001",

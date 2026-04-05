@@ -65,6 +65,30 @@
       "source": "iris"
     },
     {
+      "key": "iris:candidate-101",
+      "source": "iris"
+    },
+    {
+      "key": "iris:candidate-102",
+      "source": "iris"
+    },
+    {
+      "key": "iris:candidate-103",
+      "source": "iris"
+    },
+    {
+      "key": "rex:candidate-201",
+      "source": "rex"
+    },
+    {
+      "key": "rex:candidate-202",
+      "source": "rex"
+    },
+    {
+      "key": "rex:candidate-203",
+      "source": "rex"
+    },
+    {
       "key": "rex:candidate-201",
       "source": "rex"
     },

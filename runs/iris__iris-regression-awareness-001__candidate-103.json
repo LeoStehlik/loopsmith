@@ -8,7 +8,7 @@
   "promotion_state": "eligible",
   "notes": "Candidate improved score over baseline. Candidate reason: generic evaluator; final=0.85",
   "scoring_mode": "composite",
-  "timestamp": "2026-04-05T13:04:44.674344+00:00",
+  "timestamp": "2026-04-05T13:11:56.293583+00:00",
   "golden": true,
   "duration_ms": null,
   "details": {

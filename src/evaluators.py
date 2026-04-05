@@ -96,6 +96,80 @@ def _iris_ac_verdict(case: EvalCase, text: str) -> Tuple[float, Dict[str, object
     return final_score, details, reason
 
 
+def _iris_review_vs_validation(case: EvalCase, text: str) -> Tuple[float, Dict[str, object], str]:
+    text_l = text.lower()
+    base_score, details = score_case(case, text)
+    validation_present = _contains(text_l, "validation")
+    evidence_present = _contains(text_l, "evidence") or _contains(text_l, "incomplete")
+    false_validation = _contains(text_l, "validated") and not evidence_present
+
+    structural_pass = validation_present and evidence_present and not false_validation
+    structural_score = 1.0 if structural_pass else 0.0
+    final_score = round((base_score * 0.4) + (structural_score * 0.6), 3)
+
+    reason = (
+        f"validation_present={validation_present}; evidence_present={evidence_present}; "
+        f"false_validation={false_validation}"
+    )
+
+    details.update(
+        {
+            "evaluator": "iris_review_vs_validation",
+            "structural_checks": {
+                "validation_present": validation_present,
+                "evidence_present": evidence_present,
+                "false_validation": false_validation,
+                "structural_pass": structural_pass,
+                "structural_score": structural_score,
+            },
+            "component_scores": {
+                **details.get("component_scores", {}),
+                "case_specific_structural": structural_score,
+                "final": final_score,
+            },
+        }
+    )
+    return final_score, details, reason
+
+
+def _rex_cumulative_regression(case: EvalCase, text: str) -> Tuple[float, Dict[str, object], str]:
+    text_l = text.lower()
+    base_score, details = score_case(case, text)
+    full_present = _contains(text_l, "full")
+    regression_present = _contains(text_l, "regression")
+    incompleteness_present = _contains(text_l, "not complete") or _contains(text_l, "cannot be called a success")
+    false_success = _contains(text_l, "overall success")
+
+    structural_pass = full_present and regression_present and incompleteness_present and not false_success
+    structural_score = 1.0 if structural_pass else 0.0
+    final_score = round((base_score * 0.4) + (structural_score * 0.6), 3)
+
+    reason = (
+        f"full_present={full_present}; regression_present={regression_present}; "
+        f"incompleteness_present={incompleteness_present}; false_success={false_success}"
+    )
+
+    details.update(
+        {
+            "evaluator": "rex_cumulative_regression",
+            "structural_checks": {
+                "full_present": full_present,
+                "regression_present": regression_present,
+                "incompleteness_present": incompleteness_present,
+                "false_success": false_success,
+                "structural_pass": structural_pass,
+                "structural_score": structural_score,
+            },
+            "component_scores": {
+                **details.get("component_scores", {}),
+                "case_specific_structural": structural_score,
+                "final": final_score,
+            },
+        }
+    )
+    return final_score, details, reason
+
+
 def _rex_layered_reporting(case: EvalCase, text: str) -> Tuple[float, Dict[str, object], str]:
     text_l = text.lower()
     base_score, details = score_case(case, text)
@@ -140,6 +214,8 @@ EVALUATORS = {
     "generic": None,
     "forge_proof_before_done": _forge_proof_before_done,
     "iris_ac_verdict": _iris_ac_verdict,
+    "iris_review_vs_validation": _iris_review_vs_validation,
+    "rex_cumulative_regression": _rex_cumulative_regression,
     "rex_layered_reporting": _rex_layered_reporting,
 }
 
