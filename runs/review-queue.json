@@ -113,6 +113,22 @@
       "source": "rex"
     },
     {
+      "key": "rex:candidate-201",
+      "source": "rex"
+    },
+    {
+      "key": "rex:candidate-202",
+      "source": "rex"
+    },
+    {
+      "key": "rex:candidate-203",
+      "source": "rex"
+    },
+    {
+      "key": "iris:candidate-301",
+      "source": "golden-anti-bullshit"
+    },
+    {
       "key": "iris:candidate-301",
       "source": "golden-anti-bullshit"
     },

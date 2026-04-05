@@ -29,6 +29,7 @@ Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 8. review queue and promotion index
 9. case-specific evaluators for proof-heavy cases
 10. documented evaluator strategy and selective expansion rules
+11. artifact policy and baseline provenance views
 
 ## Core model
 
@@ -79,9 +80,9 @@ The other agents still ship with lighter starter packs while the core is being h
 - `rejected/` — rejected candidate manifests
 - `ledger/` — promotion history
 - `policies/` — mutation boundaries and promotion rules
-- `runs/` — generated run logs, summaries, review queue, and promotion index
+- `runs/` — generated run logs, summaries, review queue, promotion index, and provenance views
 - `src/` — schemas, scoring, loaders, runner, CLI, summaries, operator views
-- `docs/` — design notes, usage, review flow, and sanitisation notes
+- `docs/` — design notes, usage, review flow, artifact policy, evaluator strategy, and sanitisation notes
 
 ## CLI examples
 
@@ -110,8 +111,9 @@ Loopsmith now generates:
 - pack summaries
 - a review queue
 - a promotion index
+- a baseline provenance view
 
-so a reviewer can quickly see what is eligible, what needs review, what regressed, and what is currently live.
+so a reviewer can quickly see what is eligible, what needs review, what regressed, what is currently live, and where that live state came from.
 
 ## Why evaluator-specific logic matters
 

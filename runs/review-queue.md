@@ -1,5 +1,7 @@
 # Review Queue
 
+_Canonical current-state view: what needs attention next._
+
 ## Eligible
 
 - `forge:candidate-003` (source: `forge`)
@@ -30,6 +32,10 @@
 - `rex:candidate-201` (source: `rex`)
 - `rex:candidate-202` (source: `rex`)
 - `rex:candidate-203` (source: `rex`)
+- `rex:candidate-201` (source: `rex`)
+- `rex:candidate-202` (source: `rex`)
+- `rex:candidate-203` (source: `rex`)
+- `iris:candidate-301` (source: `golden-anti-bullshit`)
 - `iris:candidate-301` (source: `golden-anti-bullshit`)
 - `iris:candidate-301` (source: `golden-anti-bullshit`)
 - `iris:candidate-301` (source: `golden-anti-bullshit`)

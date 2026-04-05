@@ -16,6 +16,7 @@ Each run writes:
 - refreshed operator views in:
   - `runs/review-queue.md`
   - `runs/promotion-index.md`
+  - `runs/baseline-provenance.md`
 
 The aggregate summary shows:
 - total cases
@@ -42,19 +43,27 @@ The promotion index answers:
 - what has been rejected?
 - what recent approval actions happened?
 
-## 5. Promote or reject explicitly
+## 5. Inspect baseline provenance
+
+The provenance view answers:
+- where did the current baseline come from?
+- which candidate last set it?
+- who approved it?
+- what was the last rejected candidate if known?
+
+## 6. Promote or reject explicitly
 
 ```bash
 python3 src/cli.py promote --agent francis --candidate candidate-001 --approved-by leo --notes "Approved after review"
 python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by leo --notes "Rejected after review"
 ```
 
-These actions refresh the review queue and promotion index automatically.
+These actions refresh the review queue, promotion index, and baseline provenance automatically.
 
-## 6. Evaluator-specific reasons
+## 7. Evaluator-specific reasons
 
 For some proof-heavy cases, Loopsmith now records evaluator-specific reasons and structural checks. Use these when reviewing Forge, Iris, and Rex runs to understand *why* a candidate was judged eligible or discarded.
 
-## 7. Golden case rule
+## 8. Golden case rule
 
 If a golden case regresses, treat that as a strong stop signal. Golden cases exist to prevent polished nonsense from quietly becoming baseline.

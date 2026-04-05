@@ -1,5 +1,7 @@
 # Promotion Index
 
+_Canonical current-state view: what is live, promoted, or rejected._
+
 ## Current baselines
 
 - `forge` / `forge-proof-before-done-001` → `baseline/forge/forge-proof-before-done-001.txt`

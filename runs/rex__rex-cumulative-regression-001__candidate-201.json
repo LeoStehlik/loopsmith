@@ -8,7 +8,7 @@
   "promotion_state": "eligible",
   "notes": "Candidate improved score over baseline. Candidate reason: full_present=True; regression_present=True; incompleteness_present=True; false_success=False",
   "scoring_mode": "composite",
-  "timestamp": "2026-04-05T13:11:56.453452+00:00",
+  "timestamp": "2026-04-05T13:21:23.472962+00:00",
   "golden": true,
   "duration_ms": null,
   "details": {

@@ -35,6 +35,7 @@ The console output also shows:
 - summary file locations
 - review queue path
 - promotion index path
+- baseline provenance path
 
 ## Operator views
 
@@ -43,6 +44,8 @@ Generated automatically after runs, promotions, and rejections:
 - `runs/review-queue.json`
 - `runs/promotion-index.md`
 - `runs/promotion-index.json`
+- `runs/baseline-provenance.md`
+- `runs/baseline-provenance.json`
 
 ## Promote a candidate
 
@@ -66,4 +69,4 @@ python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by 
 - Iris and Rex proof packs
 - anti-bullshit golden cases
 - pack-level review summaries
-- operator views for review and promotion state
+- operator views for review, promotion state, and baseline provenance
