@@ -38,7 +38,8 @@
     "weights": {
       "hard_checks": 0.6,
       "rubric": 0.4
-    }
+    },
+    "evaluator": "iris_ac_verdict"
   },
   {
     "id": "iris-review-vs-validation-001",

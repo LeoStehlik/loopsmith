@@ -53,6 +53,7 @@ def load_eval_pack(pack_path: str) -> List[EvalCase]:
             anti_goals=data.get("anti_goals", []),
             weights=data.get("weights", {}),
             metadata=data.get("metadata", {}),
+            evaluator=data.get("evaluator", "generic"),
         )
         cases.append(case)
     return cases

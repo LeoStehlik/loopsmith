@@ -55,6 +55,7 @@ class EvalCase:
     anti_goals: List[str] = field(default_factory=list)
     weights: Dict[str, float] = field(default_factory=dict)
     metadata: Dict[str, Any] = field(default_factory=dict)
+    evaluator: str = "generic"
 
     def to_dict(self) -> Dict[str, Any]:
         return {

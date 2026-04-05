@@ -38,6 +38,7 @@
     "weights": {
       "hard_checks": 0.6,
       "rubric": 0.4
-    }
+    },
+    "evaluator": "forge_proof_before_done"
   }
 ]

@@ -6,16 +6,25 @@
   "candidate_score": 1.0,
   "verdict": "keep",
   "promotion_state": "eligible",
-  "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
+  "notes": "Candidate improved score over baseline. Candidate reason: generic evaluator; final=1.0",
   "scoring_mode": "composite",
-  "timestamp": "2026-04-05T12:47:51.613746+00:00",
+  "timestamp": "2026-04-05T13:04:44.673339+00:00",
   "golden": false,
   "duration_ms": null,
   "details": {
     "surface": "qa_checklist",
     "title": "Iris must distinguish review from validation",
     "risk_level": "L2",
+    "evaluator": "generic",
     "baseline": {
+      "component_scores": {
+        "required": 0.0,
+        "forbidden": 0.0,
+        "hard": 0.0,
+        "rubric": 0.0,
+        "anti_goal_penalty": 0.2,
+        "final": 0.0
+      },
       "required_checks": [
         {
           "label": "mentions validation gap",
@@ -64,9 +73,19 @@
       "anti_goal_hits": [
         "review complete therefore validated"
       ],
-      "anti_goal_penalty": 0.2
+      "anti_goal_penalty": 0.2,
+      "evaluator": "generic",
+      "reason": "generic evaluator; final=0.0"
     },
     "candidate": {
+      "component_scores": {
+        "required": 1.0,
+        "forbidden": 1.0,
+        "hard": 1.0,
+        "rubric": 1.0,
+        "anti_goal_penalty": 0.0,
+        "final": 1.0
+      },
       "required_checks": [
         {
           "label": "mentions validation gap",
@@ -113,7 +132,9 @@
         }
       ],
       "anti_goal_hits": [],
-      "anti_goal_penalty": 0.0
+      "anti_goal_penalty": 0.0,
+      "evaluator": "generic",
+      "reason": "generic evaluator; final=1.0"
     }
   },
   "delta": 1.0

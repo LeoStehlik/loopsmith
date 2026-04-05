@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-04-05T13:04:44.547748+00:00",
+  "run_kind": "agent-pack",
+  "subject": "forge",
+  "total_cases": 1,
+  "eligible": 1,
+  "discard": 0,
+  "review": 0,
+  "golden_regressions": 0,
+  "eligible_candidates": [
+    "forge:candidate-003"
+  ],
+  "review_candidates": [],
+  "discarded_candidates": [],
+  "golden_regression_cases": [],
+  "top_deltas": [
+    {
+      "agent": "forge",
+      "eval_id": "forge-proof-before-done-001",
+      "candidate_id": "candidate-003",
+      "promotion_state": "eligible",
+      "delta": 0.88,
+      "golden": true
+    }
+  ],
+  "by_agent": {
+    "forge": {
+      "count": 1,
+      "eligible": 1,
+      "discard": 0,
+      "review": 0,
+      "golden_regressions": 0,
+      "cases": [
+        {
+          "eval_id": "forge-proof-before-done-001",
+          "candidate_id": "candidate-003",
+          "promotion_state": "eligible",
+          "delta": 0.88,
+          "golden": true
+        }
+      ]
+    }
+  }
+}

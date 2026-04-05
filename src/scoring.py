@@ -115,6 +115,8 @@ def score_case(case: EvalCase, text: str) -> Tuple[float, Dict[str, object]]:
     rubric_score, rubric_details = score_rubric(text, case.rubric_dimensions)
     anti_goal_penalty, anti_goal_hits = score_anti_goals(text, case.anti_goals)
 
+    hard_score = round((required_score + forbidden_score) / 2, 3)
+
     if case.scoring_mode == "pass_fail":
         score = 1.0 if required_score == 1.0 and forbidden_score == 1.0 else 0.0
     elif case.scoring_mode == "rubric":
@@ -122,11 +124,18 @@ def score_case(case: EvalCase, text: str) -> Tuple[float, Dict[str, object]]:
     else:
         hard_weight = case.weights.get("hard_checks", 0.5)
         rubric_weight = case.weights.get("rubric", 0.5)
-        hard_score = (required_score + forbidden_score) / 2
         score = (hard_score * hard_weight) + (rubric_score * rubric_weight) - anti_goal_penalty
 
     score = max(0.0, min(1.0, round(score, 3)))
     details: Dict[str, object] = {
+        "component_scores": {
+            "required": required_score,
+            "forbidden": forbidden_score,
+            "hard": hard_score,
+            "rubric": rubric_score,
+            "anti_goal_penalty": anti_goal_penalty,
+            "final": score,
+        },
         "required_checks": required_details,
         "forbidden_checks": forbidden_details,
         "rubric_dimensions": rubric_details,

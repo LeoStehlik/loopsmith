@@ -2,6 +2,7 @@
 
 ## Eligible
 
+- `forge:candidate-003` (source: `forge`)
 - `iris:candidate-101` (source: `iris`)
 - `iris:candidate-102` (source: `iris`)
 - `iris:candidate-103` (source: `iris`)
@@ -14,6 +15,12 @@
 - `iris:candidate-101` (source: `iris`)
 - `iris:candidate-102` (source: `iris`)
 - `iris:candidate-103` (source: `iris`)
+- `iris:candidate-101` (source: `iris`)
+- `iris:candidate-102` (source: `iris`)
+- `iris:candidate-103` (source: `iris`)
+- `rex:candidate-201` (source: `rex`)
+- `rex:candidate-202` (source: `rex`)
+- `rex:candidate-203` (source: `rex`)
 - `rex:candidate-201` (source: `rex`)
 - `rex:candidate-202` (source: `rex`)
 - `rex:candidate-203` (source: `rex`)

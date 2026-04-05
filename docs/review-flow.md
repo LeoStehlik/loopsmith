@@ -51,6 +51,10 @@ python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by 
 
 These actions refresh the review queue and promotion index automatically.
 
-## 6. Golden case rule
+## 6. Evaluator-specific reasons
+
+For some proof-heavy cases, Loopsmith now records evaluator-specific reasons and structural checks. Use these when reviewing Forge, Iris, and Rex runs to understand *why* a candidate was judged eligible or discarded.
+
+## 7. Golden case rule
 
 If a golden case regresses, treat that as a strong stop signal. Golden cases exist to prevent polished nonsense from quietly becoming baseline.

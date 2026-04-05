@@ -4,10 +4,10 @@ import json
 from pathlib import Path
 from typing import List
 
+from evaluators import evaluate_text
 from loaders import ROOT, baseline_path, load_candidates, load_eval_pack, load_text
 from operator_views import refresh_operator_views
 from schema import AgentProfile, CandidateChange, EvalCase, EvalResult, PromotionRecord, utc_now_iso
-from scoring import score_case
 from summaries import build_summary, write_summary
 
 RUNS_DIR = ROOT / "runs"
@@ -28,25 +28,25 @@ def evaluate_case(
     baseline_response: str,
     candidate_response: str,
 ) -> EvalResult:
-    baseline_score, baseline_details = score_case(case, baseline_response)
-    candidate_score, candidate_details = score_case(case, candidate_response)
+    baseline_score, baseline_details, baseline_reason = evaluate_text(case, baseline_response)
+    candidate_score, candidate_details, candidate_reason = evaluate_text(case, candidate_response)
 
     if case.golden and candidate_score < baseline_score:
         verdict = "discard"
         promotion_state = "discard"
-        notes = "Golden case regressed."
+        notes = f"Golden case regressed. Candidate reason: {candidate_reason}"
     elif candidate_score > baseline_score:
         verdict = "keep"
         promotion_state = "eligible"
-        notes = "Candidate improved score over baseline and is eligible for human-reviewed promotion."
+        notes = f"Candidate improved score over baseline. Candidate reason: {candidate_reason}"
     elif candidate_score == baseline_score:
         verdict = "review"
         promotion_state = "review"
-        notes = "No measurable change. Human review needed."
+        notes = f"No measurable change. Candidate reason: {candidate_reason}"
     else:
         verdict = "discard"
         promotion_state = "discard"
-        notes = "Candidate scored worse than baseline."
+        notes = f"Candidate scored worse than baseline. Candidate reason: {candidate_reason}"
 
     return EvalResult(
         eval_id=case.id,
@@ -63,8 +63,9 @@ def evaluate_case(
             "surface": candidate.surface,
             "title": case.title,
             "risk_level": case.risk_level,
-            "baseline": baseline_details,
-            "candidate": candidate_details,
+            "evaluator": case.evaluator,
+            "baseline": {**baseline_details, "reason": baseline_reason},
+            "candidate": {**candidate_details, "reason": candidate_reason},
         },
     )
 
@@ -75,6 +76,11 @@ def write_run_files(result: EvalResult) -> tuple[Path, Path]:
     json_path = RUNS_DIR / f"{stem}.json"
     md_path = RUNS_DIR / f"{stem}.md"
 
+    candidate_details = result.details.get("candidate", {})
+    structural = candidate_details.get("structural_checks", {})
+    anti_goals = candidate_details.get("anti_goal_hits", [])
+    evaluator = result.details.get("evaluator", "generic")
+
     json_path.write_text(json.dumps(result.to_dict(), indent=2), encoding="utf-8")
     md_path.write_text(
         "\n".join(
@@ -83,6 +89,7 @@ def write_run_files(result: EvalResult) -> tuple[Path, Path]:
                 "",
                 f"- Eval: `{result.eval_id}`",
                 f"- Candidate: `{result.candidate_id}`",
+                f"- Evaluator: `{evaluator}`",
                 f"- Baseline score: `{result.baseline_score}`",
                 f"- Candidate score: `{result.candidate_score}`",
                 f"- Delta: `{result.delta()}`",
@@ -90,6 +97,9 @@ def write_run_files(result: EvalResult) -> tuple[Path, Path]:
                 f"- Promotion state: `{result.promotion_state}`",
                 f"- Golden: `{result.golden}`",
                 f"- Notes: {result.notes}",
+                f"- Candidate reason: {candidate_details.get('reason', '')}",
+                f"- Anti-goals hit: `{', '.join(anti_goals) if anti_goals else 'none'}`",
+                f"- Structural checks: `{json.dumps(structural) if structural else 'none'}`",
             ]
         ),
         encoding="utf-8",

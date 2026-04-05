@@ -93,6 +93,7 @@
     "weights": {
       "hard_checks": 0.6,
       "rubric": 0.4
-    }
+    },
+    "evaluator": "rex_layered_reporting"
   }
 ]

@@ -27,6 +27,7 @@ Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 6. pack-level review summaries
 7. stronger shared-pack review flow
 8. review queue and promotion index
+9. case-specific evaluators for proof-heavy cases
 
 ## Core model
 
@@ -110,3 +111,7 @@ Loopsmith now generates:
 - a promotion index
 
 so a reviewer can quickly see what is eligible, what needs review, what regressed, and what is currently live.
+
+## Why evaluator-specific logic matters
+
+Some cases are too important to judge with loose heuristics alone. Loopsmith now supports case-specific evaluators for proof-heavy checks such as Forge proof-before-done, Iris AC verdict discipline, and Rex layered reporting honesty.
