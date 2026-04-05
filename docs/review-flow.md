@@ -8,6 +8,8 @@ python3 src/cli.py run --agent rex
 python3 src/cli.py run-shared --pack golden:anti-bullshit
 ```
 
+For shared packs, Loopsmith now loads explicit pack metadata and participating-agent information before running cases.
+
 ## 2. Inspect the pack summary
 
 Each run writes:
@@ -26,6 +28,8 @@ The aggregate summary shows:
 - golden regressions
 - grouping by agent
 - top deltas
+
+For shared packs, the summary also surfaces pack identity and participating agents.
 
 ## 3. Inspect the review queue
 

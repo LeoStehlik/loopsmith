@@ -1,0 +1,9 @@
+{
+  "id": "golden:anti-bullshit",
+  "title": "Anti-bullshit golden pack",
+  "description": "Cross-agent trust-failure checks for robotic replies, vague verdicts, false completion, and generic sludge.",
+  "kind": "shared-golden",
+  "participating_agents": ["francis", "nox", "forge", "iris"],
+  "cases_file": "evals/shared/anti-bullshit/cases.json",
+  "tags": ["shared", "golden", "anti-bullshit"]
+}

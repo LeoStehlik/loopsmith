@@ -3,8 +3,8 @@ from __future__ import annotations
 import argparse
 import json
 
-from loaders import load_agent_profiles, load_candidates, load_shared_eval_pack, baseline_path, load_text
-from operator_views import PROMOTION_INDEX_MD, REVIEW_QUEUE_MD
+from loaders import load_agent_profiles, load_candidates, load_shared_pack, baseline_path, load_text
+from operator_views import BASELINE_PROVENANCE_MD, PROMOTION_INDEX_MD, REVIEW_QUEUE_MD
 from runner import (
     evaluate_case,
     promote_candidate,
@@ -32,6 +32,7 @@ def _print_summary_stub(summary_json, summary_md, summary_data: dict) -> None:
     print(f"Summary files: {summary_json} | {summary_md}")
     print(f"Review queue: {REVIEW_QUEUE_MD}")
     print(f"Promotion index: {PROMOTION_INDEX_MD}")
+    print(f"Baseline provenance: {BASELINE_PROVENANCE_MD}")
 
 
 def cmd_run(args: argparse.Namespace) -> int:
@@ -68,6 +69,7 @@ def cmd_promote(args: argparse.Namespace) -> int:
     print(json.dumps(record.to_dict(), indent=2))
     print(f"Review queue: {REVIEW_QUEUE_MD}")
     print(f"Promotion index: {PROMOTION_INDEX_MD}")
+    print(f"Baseline provenance: {BASELINE_PROVENANCE_MD}")
     return 0
 
 
@@ -77,15 +79,16 @@ def cmd_reject(args: argparse.Namespace) -> int:
     print(json.dumps(record.to_dict(), indent=2))
     print(f"Review queue: {REVIEW_QUEUE_MD}")
     print(f"Promotion index: {PROMOTION_INDEX_MD}")
+    print(f"Baseline provenance: {BASELINE_PROVENANCE_MD}")
     return 0
 
 
 def cmd_run_shared(args: argparse.Namespace) -> int:
-    pack = load_shared_eval_pack(args.pack)
+    pack_meta, pack_cases = load_shared_pack(args.pack)
     candidates_by_agent = load_candidates()
     results = []
 
-    for case in pack:
+    for case in pack_cases:
         profiles = load_agent_profiles(case.agent)
         profile = profiles.get(case.agent)
         if not profile:
@@ -99,12 +102,23 @@ def cmd_run_shared(args: argparse.Namespace) -> int:
             write_run_files(result)
             results.append(result)
 
-    summary_json, summary_md = write_pack_summary(results, run_kind="shared-pack", subject=args.pack.replace(':', '-'))
+    subject = pack_meta.id.replace(":", "-")
+    summary_json, summary_md = write_pack_summary(results, run_kind="shared-pack", subject=subject)
     summary_data = json.loads(summary_json.read_text(encoding="utf-8"))
+    summary_data["pack"] = {
+        "id": pack_meta.id,
+        "title": pack_meta.title,
+        "description": pack_meta.description,
+        "kind": pack_meta.kind,
+        "participating_agents": pack_meta.participating_agents,
+    }
 
     if args.json:
         print(json.dumps({"results": [result.to_dict() for result in results], "summary": summary_data}, indent=2))
     else:
+        print(f"Shared pack: {pack_meta.title} ({pack_meta.id})")
+        print(f"Description: {pack_meta.description}")
+        print(f"Participating agents: {', '.join(pack_meta.participating_agents)}")
         _print_result_lines([result.to_dict() for result in results])
         _print_summary_stub(summary_json, summary_md, summary_data)
     return 0

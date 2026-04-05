@@ -22,6 +22,8 @@ python3 src/cli.py run --agent francis --json
 python3 src/cli.py run-shared --pack golden:anti-bullshit
 ```
 
+Shared packs are first-class Loopsmith objects with explicit metadata and participating agents.
+
 ## Review summaries
 
 Each run writes aggregate summaries to `runs/summaries/`.
@@ -70,3 +72,4 @@ python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by 
 - anti-bullshit golden cases
 - pack-level review summaries
 - operator views for review, promotion state, and baseline provenance
+- shared packs as first-class objects

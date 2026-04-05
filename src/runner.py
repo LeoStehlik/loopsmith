@@ -107,9 +107,9 @@ def write_run_files(result: EvalResult) -> tuple[Path, Path]:
     return json_path, md_path
 
 
-def write_pack_summary(results: List[EvalResult], run_kind: str, subject: str) -> tuple[Path, Path]:
+def write_pack_summary(results: List[EvalResult], run_kind: str, subject: str, pack_meta: dict | None = None) -> tuple[Path, Path]:
     ensure_dirs()
-    summary = build_summary(results, run_kind=run_kind, subject=subject)
+    summary = build_summary(results, run_kind=run_kind, subject=subject, pack_meta=pack_meta)
     paths = write_summary(summary, SUMMARIES_DIR)
     refresh_operator_views()
     return paths

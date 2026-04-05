@@ -8,7 +8,7 @@ from typing import Dict, List
 from schema import EvalResult, utc_now_iso
 
 
-def build_summary(results: List[EvalResult], run_kind: str, subject: str) -> Dict[str, object]:
+def build_summary(results: List[EvalResult], run_kind: str, subject: str, pack_meta: Dict[str, object] | None = None) -> Dict[str, object]:
     by_agent: Dict[str, Dict[str, object]] = defaultdict(lambda: {
         "count": 0,
         "eligible": 0,
@@ -66,6 +66,8 @@ def build_summary(results: List[EvalResult], run_kind: str, subject: str) -> Dic
         "top_deltas": best_deltas[:5],
         "by_agent": dict(by_agent),
     }
+    if pack_meta:
+        summary["pack"] = pack_meta
     return summary
 
 
@@ -78,9 +80,16 @@ def write_summary(summary: Dict[str, object], out_dir: Path) -> tuple[Path, Path
 
     json_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
-    lines = [
-        f"# Summary — {summary['run_kind']} / {summary['subject']}",
-        "",
+    lines = [f"# Summary — {summary['run_kind']} / {summary['subject']}", ""]
+    if "pack" in summary:
+        pack = summary["pack"]
+        lines += [
+            f"- Pack title: `{pack.get('title')}`",
+            f"- Pack kind: `{pack.get('kind')}`",
+            f"- Participating agents: `{', '.join(pack.get('participating_agents', []))}`",
+            "",
+        ]
+    lines += [
         f"- Total cases: `{summary['total_cases']}`",
         f"- Eligible: `{summary['eligible']}`",
         f"- Review: `{summary['review']}`",

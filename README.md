@@ -30,6 +30,7 @@ Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 9. case-specific evaluators for proof-heavy cases
 10. documented evaluator strategy and selective expansion rules
 11. artifact policy and baseline provenance views
+12. shared packs as first-class objects with metadata
 
 ## Core model
 
@@ -82,7 +83,7 @@ The other agents still ship with lighter starter packs while the core is being h
 - `policies/` — mutation boundaries and promotion rules
 - `runs/` — generated run logs, summaries, review queue, promotion index, and provenance views
 - `src/` — schemas, scoring, loaders, runner, CLI, summaries, operator views
-- `docs/` — design notes, usage, review flow, artifact policy, evaluator strategy, and sanitisation notes
+- `docs/` — design notes, usage, review flow, artifact policy, evaluator strategy, shared-pack guidance, and sanitisation notes
 
 ## CLI examples
 
@@ -114,6 +115,10 @@ Loopsmith now generates:
 - a baseline provenance view
 
 so a reviewer can quickly see what is eligible, what needs review, what regressed, what is currently live, and where that live state came from.
+
+## Why shared packs matter
+
+Some failure modes are not agent-local. Shared packs let Loopsmith express cross-agent behavioural families — for example anti-bullshit golden checks — as first-class objects with explicit metadata, participating agents, and clearer operator-facing summaries.
 
 ## Why evaluator-specific logic matters
 

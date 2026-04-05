@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
 
@@ -9,13 +10,19 @@ from schema import AgentProfile, CandidateChange, CheckRule, EvalCase, RubricDim
 ROOT = Path(__file__).resolve().parent.parent
 
 
+@dataclass
+class SharedPack:
+    id: str
+    title: str
+    description: str
+    kind: str
+    participating_agents: List[str]
+    cases_file: str
+    tags: List[str]
+
+
 def _read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-SHARED_EVAL_PACKS = {
-    "golden:anti-bullshit": "evals/golden/anti-bullshit.json",
-}
 
 
 def load_agent_profiles(agent_id: str | None = None) -> Dict[str, AgentProfile]:
@@ -80,11 +87,15 @@ def load_text(relative_path: str) -> str:
     return (ROOT / relative_path).read_text(encoding="utf-8")
 
 
-def load_shared_eval_pack(name: str) -> List[EvalCase]:
-    path = SHARED_EVAL_PACKS.get(name)
-    if not path:
-        raise ValueError(f"Unknown shared eval pack: {name}")
-    return load_eval_pack(path)
+def load_shared_pack(pack_id: str) -> tuple[SharedPack, List[EvalCase]]:
+    shared_root = ROOT / "evals" / "shared"
+    for pack_file in shared_root.glob("*/pack.json"):
+        data = _read_json(pack_file)
+        if data.get("id") == pack_id:
+            pack = SharedPack(**data)
+            cases = load_eval_pack(pack.cases_file)
+            return pack, cases
+    raise ValueError(f"Unknown shared eval pack: {pack_id}")
 
 
 def baseline_path(agent: str, eval_id: str) -> Path:
