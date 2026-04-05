@@ -26,6 +26,7 @@ Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 5. anti-bullshit golden cases
 6. pack-level review summaries
 7. stronger shared-pack review flow
+8. review queue and promotion index
 
 ## Core model
 
@@ -76,8 +77,8 @@ The other agents still ship with lighter starter packs while the core is being h
 - `rejected/` — rejected candidate manifests
 - `ledger/` — promotion history
 - `policies/` — mutation boundaries and promotion rules
-- `runs/` — generated run logs and summaries
-- `src/` — schemas, scoring, loaders, runner, CLI, summaries
+- `runs/` — generated run logs, summaries, review queue, and promotion index
+- `src/` — schemas, scoring, loaders, runner, CLI, summaries, operator views
 - `docs/` — design notes, usage, review flow, and sanitisation notes
 
 ## CLI examples
@@ -100,10 +101,12 @@ Loopsmith is not just for checking success paths. It is also for catching trust-
 - vague QA verdicts
 - other forms of operational bullshit
 
-## Why summaries matter
+## Why the operator views matter
 
-Once a pack has more than a couple of cases, case-by-case review becomes noisy. Loopsmith now writes pack-level summaries so a human can quickly see:
-- what is promotion-eligible
-- what needs review
-- what should be discarded
-- whether any golden case regressed
+Once a repo has multiple packs and promotion states, the human operator needs a clean control surface.
+Loopsmith now generates:
+- pack summaries
+- a review queue
+- a promotion index
+
+so a reviewer can quickly see what is eligible, what needs review, what regressed, and what is currently live.

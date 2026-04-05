@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-04-05T12:46:44.077132+00:00",
+  "run_kind": "shared-pack",
+  "subject": "golden-anti-bullshit",
+  "total_cases": 1,
+  "eligible": 1,
+  "discard": 0,
+  "review": 0,
+  "golden_regressions": 0,
+  "eligible_candidates": [
+    "iris:candidate-301"
+  ],
+  "review_candidates": [],
+  "discarded_candidates": [],
+  "golden_regression_cases": [],
+  "top_deltas": [
+    {
+      "agent": "iris",
+      "eval_id": "golden-iris-vague-verdict-001",
+      "candidate_id": "candidate-301",
+      "promotion_state": "eligible",
+      "delta": 1.0,
+      "golden": false
+    }
+  ],
+  "by_agent": {
+    "iris": {
+      "count": 1,
+      "eligible": 1,
+      "discard": 0,
+      "review": 0,
+      "golden_regressions": 0,
+      "cases": [
+        {
+          "eval_id": "golden-iris-vague-verdict-001",
+          "candidate_id": "candidate-301",
+          "promotion_state": "eligible",
+          "delta": 1.0,
+          "golden": false
+        }
+      ]
+    }
+  }
+}

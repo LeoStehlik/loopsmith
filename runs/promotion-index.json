@@ -1,0 +1,72 @@
+{
+  "baselines": [
+    {
+      "agent": "forge",
+      "eval_id": "forge-proof-before-done-001",
+      "path": "baseline/forge/forge-proof-before-done-001.txt"
+    },
+    {
+      "agent": "forge",
+      "eval_id": "golden-forge-false-completion-001",
+      "path": "baseline/forge/golden-forge-false-completion-001.txt"
+    },
+    {
+      "agent": "francis",
+      "eval_id": "francis-human-response-001",
+      "path": "baseline/francis/francis-human-response-001.txt"
+    },
+    {
+      "agent": "francis",
+      "eval_id": "golden-francis-robotic-response-001",
+      "path": "baseline/francis/golden-francis-robotic-response-001.txt"
+    },
+    {
+      "agent": "iris",
+      "eval_id": "golden-iris-vague-verdict-001",
+      "path": "baseline/iris/golden-iris-vague-verdict-001.txt"
+    },
+    {
+      "agent": "iris",
+      "eval_id": "iris-ac-verdict-001",
+      "path": "baseline/iris/iris-ac-verdict-001.txt"
+    },
+    {
+      "agent": "iris",
+      "eval_id": "iris-regression-awareness-001",
+      "path": "baseline/iris/iris-regression-awareness-001.txt"
+    },
+    {
+      "agent": "iris",
+      "eval_id": "iris-review-vs-validation-001",
+      "path": "baseline/iris/iris-review-vs-validation-001.txt"
+    },
+    {
+      "agent": "nox",
+      "eval_id": "golden-nox-research-sludge-001",
+      "path": "baseline/nox/golden-nox-research-sludge-001.txt"
+    },
+    {
+      "agent": "nox",
+      "eval_id": "nox-brief-freshness-001",
+      "path": "baseline/nox/nox-brief-freshness-001.txt"
+    },
+    {
+      "agent": "rex",
+      "eval_id": "rex-cumulative-regression-001",
+      "path": "baseline/rex/rex-cumulative-regression-001.txt"
+    },
+    {
+      "agent": "rex",
+      "eval_id": "rex-environment-sanity-001",
+      "path": "baseline/rex/rex-environment-sanity-001.txt"
+    },
+    {
+      "agent": "rex",
+      "eval_id": "rex-layered-reporting-001",
+      "path": "baseline/rex/rex-layered-reporting-001.txt"
+    }
+  ],
+  "promoted": [],
+  "rejected": [],
+  "ledger_records": []
+}

@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import List
 
 from loaders import ROOT, baseline_path, load_candidates, load_eval_pack, load_text
+from operator_views import refresh_operator_views
 from schema import AgentProfile, CandidateChange, EvalCase, EvalResult, PromotionRecord, utc_now_iso
 from scoring import score_case
 from summaries import build_summary, write_summary
@@ -99,7 +100,9 @@ def write_run_files(result: EvalResult) -> tuple[Path, Path]:
 def write_pack_summary(results: List[EvalResult], run_kind: str, subject: str) -> tuple[Path, Path]:
     ensure_dirs()
     summary = build_summary(results, run_kind=run_kind, subject=subject)
-    return write_summary(summary, SUMMARIES_DIR)
+    paths = write_summary(summary, SUMMARIES_DIR)
+    refresh_operator_views()
+    return paths
 
 
 def append_ledger(record: PromotionRecord) -> None:
@@ -130,6 +133,7 @@ def promote_candidate(agent: str, candidate: CandidateChange, approved_by: str, 
         notes=notes or "Candidate promoted into baseline.",
     )
     append_ledger(record)
+    refresh_operator_views()
     return record
 
 
@@ -150,6 +154,7 @@ def reject_candidate(agent: str, candidate: CandidateChange, approved_by: str, n
         notes=notes or "Candidate explicitly rejected.",
     )
     append_ledger(record)
+    refresh_operator_views()
     return record
 
 

@@ -22,6 +22,7 @@ def build_summary(results: List[EvalResult], run_kind: str, subject: str) -> Dic
     review_candidates: List[str] = []
     discarded_candidates: List[str] = []
     golden_regressions: List[str] = []
+    best_deltas: List[Dict[str, object]] = []
 
     for result in results:
         bucket = by_agent[result.agent]
@@ -30,15 +31,15 @@ def build_summary(results: List[EvalResult], run_kind: str, subject: str) -> Dic
         if result.golden and result.promotion_state == "discard":
             bucket["golden_regressions"] += 1
             golden_regressions.append(f"{result.agent}:{result.eval_id}:{result.candidate_id}")
-        bucket["cases"].append(
-            {
-                "eval_id": result.eval_id,
-                "candidate_id": result.candidate_id,
-                "promotion_state": result.promotion_state,
-                "delta": result.delta(),
-                "golden": result.golden,
-            }
-        )
+        case_info = {
+            "eval_id": result.eval_id,
+            "candidate_id": result.candidate_id,
+            "promotion_state": result.promotion_state,
+            "delta": result.delta(),
+            "golden": result.golden,
+        }
+        bucket["cases"].append(case_info)
+        best_deltas.append({"agent": result.agent, **case_info})
         key = f"{result.agent}:{result.candidate_id}"
         if result.promotion_state == "eligible":
             eligible_candidates.append(key)
@@ -46,6 +47,8 @@ def build_summary(results: List[EvalResult], run_kind: str, subject: str) -> Dic
             review_candidates.append(key)
         elif result.promotion_state == "discard":
             discarded_candidates.append(key)
+
+    best_deltas.sort(key=lambda item: item["delta"], reverse=True)
 
     summary = {
         "timestamp": utc_now_iso(),
@@ -60,6 +63,7 @@ def build_summary(results: List[EvalResult], run_kind: str, subject: str) -> Dic
         "review_candidates": review_candidates,
         "discarded_candidates": discarded_candidates,
         "golden_regression_cases": golden_regressions,
+        "top_deltas": best_deltas[:5],
         "by_agent": dict(by_agent),
     }
     return summary
@@ -90,6 +94,17 @@ def write_summary(summary: Dict[str, object], out_dir: Path) -> tuple[Path, Path
         for item in summary["golden_regression_cases"]:
             lines.append(f"- `{item}`")
         lines.append("")
+
+    lines += ["## Top deltas", ""]
+    top_deltas = summary.get("top_deltas", [])
+    if top_deltas:
+        for item in top_deltas:
+            lines.append(
+                f"- `{item['agent']}:{item['candidate_id']}` on `{item['eval_id']}` → delta `{item['delta']}`"
+            )
+    else:
+        lines.append("- None")
+    lines.append("")
 
     lines += ["## Recommended promotions", ""]
     if summary["eligible_candidates"]:

@@ -4,6 +4,7 @@ import argparse
 import json
 
 from loaders import load_agent_profiles, load_candidates, load_shared_eval_pack, baseline_path, load_text
+from operator_views import PROMOTION_INDEX_MD, REVIEW_QUEUE_MD
 from runner import (
     evaluate_case,
     promote_candidate,
@@ -29,6 +30,8 @@ def _print_summary_stub(summary_json, summary_md, summary_data: dict) -> None:
         f"golden_regressions={summary_data['golden_regressions']}"
     )
     print(f"Summary files: {summary_json} | {summary_md}")
+    print(f"Review queue: {REVIEW_QUEUE_MD}")
+    print(f"Promotion index: {PROMOTION_INDEX_MD}")
 
 
 def cmd_run(args: argparse.Namespace) -> int:
@@ -63,6 +66,8 @@ def cmd_promote(args: argparse.Namespace) -> int:
     candidate = _find_candidate(args.agent, args.candidate)
     record = promote_candidate(args.agent, candidate, approved_by=args.approved_by, notes=args.notes)
     print(json.dumps(record.to_dict(), indent=2))
+    print(f"Review queue: {REVIEW_QUEUE_MD}")
+    print(f"Promotion index: {PROMOTION_INDEX_MD}")
     return 0
 
 
@@ -70,6 +75,8 @@ def cmd_reject(args: argparse.Namespace) -> int:
     candidate = _find_candidate(args.agent, args.candidate)
     record = reject_candidate(args.agent, candidate, approved_by=args.approved_by, notes=args.notes)
     print(json.dumps(record.to_dict(), indent=2))
+    print(f"Review queue: {REVIEW_QUEUE_MD}")
+    print(f"Promotion index: {PROMOTION_INDEX_MD}")
     return 0
 
 
