@@ -22,6 +22,18 @@ python3 src/cli.py run --agent francis --json
 python3 src/cli.py run-shared --pack golden:anti-bullshit
 ```
 
+## Review summaries
+
+Each run now writes aggregate summaries to `runs/summaries/`.
+
+The console output also shows:
+- total cases
+- eligible count
+- review count
+- discard count
+- golden regressions count
+- summary file locations
+
 ## Promote a candidate
 
 Promotion requires explicit human approval.
@@ -43,3 +55,4 @@ python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by 
 - file-driven runner
 - Iris and Rex proof packs
 - anti-bullshit golden cases
+- pack-level review summaries

@@ -8,7 +8,7 @@
   "promotion_state": "eligible",
   "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
   "scoring_mode": "composite",
-  "timestamp": "2026-04-05T12:18:08.497678+00:00",
+  "timestamp": "2026-04-05T12:32:02.179478+00:00",
   "golden": false,
   "duration_ms": null,
   "details": {
@@ -20,25 +20,35 @@
         {
           "label": "mentions environment",
           "passed": false,
+          "hits": 0,
           "terms": [
             "environment"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         },
         {
           "label": "mentions sanity or precondition",
           "passed": false,
+          "hits": 0,
           "terms": [
-            "precondition"
-          ]
+            "precondition",
+            "preconditions"
+          ],
+          "match_mode": "any",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "avoid blind test start",
           "triggered": true,
+          "hits": 1,
           "terms": [
             "just run the tests"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [
@@ -61,25 +71,35 @@
         {
           "label": "mentions environment",
           "passed": true,
+          "hits": 1,
           "terms": [
             "environment"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         },
         {
           "label": "mentions sanity or precondition",
           "passed": true,
+          "hits": 2,
           "terms": [
-            "precondition"
-          ]
+            "precondition",
+            "preconditions"
+          ],
+          "match_mode": "any",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "avoid blind test start",
           "triggered": false,
+          "hits": 0,
           "terms": [
             "just run the tests"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [

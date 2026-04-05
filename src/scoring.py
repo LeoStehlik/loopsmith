@@ -5,8 +5,17 @@ from typing import Dict, List, Tuple
 from schema import CheckRule, EvalCase, RubricDimension
 
 
-def _contains_terms(text_l: str, terms: List[str]) -> bool:
-    return all(term.lower() in text_l for term in terms)
+def _term_hits(text_l: str, terms: List[str]) -> int:
+    return sum(1 for term in terms if term.lower() in text_l)
+
+
+def _rule_passed(text_l: str, rule: CheckRule) -> tuple[bool, int]:
+    hits = _term_hits(text_l, rule.terms)
+    if rule.min_terms is not None:
+        return hits >= rule.min_terms, hits
+    if rule.match_mode == "any":
+        return hits >= 1, hits
+    return hits == len(rule.terms), hits
 
 
 def score_required_checks(text: str, rules: List[CheckRule]) -> Tuple[float, List[Dict[str, object]]]:
@@ -16,8 +25,17 @@ def score_required_checks(text: str, rules: List[CheckRule]) -> Tuple[float, Lis
     details = []
     passed = 0
     for rule in rules:
-        ok = _contains_terms(text_l, rule.terms)
-        details.append({"label": rule.label, "passed": ok, "terms": rule.terms})
+        ok, hits = _rule_passed(text_l, rule)
+        details.append(
+            {
+                "label": rule.label,
+                "passed": ok,
+                "hits": hits,
+                "terms": rule.terms,
+                "match_mode": rule.match_mode,
+                "min_terms": rule.min_terms,
+            }
+        )
         if ok:
             passed += 1
     return round(passed / len(rules), 3), details
@@ -30,8 +48,17 @@ def score_forbidden_checks(text: str, rules: List[CheckRule]) -> Tuple[float, Li
     details = []
     clean = 0
     for rule in rules:
-        triggered = any(term.lower() in text_l for term in rule.terms)
-        details.append({"label": rule.label, "triggered": triggered, "terms": rule.terms})
+        triggered, hits = _rule_passed(text_l, rule)
+        details.append(
+            {
+                "label": rule.label,
+                "triggered": triggered,
+                "hits": hits,
+                "terms": rule.terms,
+                "match_mode": rule.match_mode,
+                "min_terms": rule.min_terms,
+            }
+        )
         if not triggered:
             clean += 1
     return round(clean / len(rules), 3), details

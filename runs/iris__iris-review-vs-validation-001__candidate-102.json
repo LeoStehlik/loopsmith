@@ -8,7 +8,7 @@
   "promotion_state": "eligible",
   "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
   "scoring_mode": "composite",
-  "timestamp": "2026-04-05T12:18:08.363723+00:00",
+  "timestamp": "2026-04-05T12:32:02.053709+00:00",
   "golden": false,
   "duration_ms": null,
   "details": {
@@ -20,25 +20,35 @@
         {
           "label": "mentions validation gap",
           "passed": false,
+          "hits": 0,
           "terms": [
             "validation"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         },
         {
           "label": "mentions evidence gap",
           "passed": false,
+          "hits": 0,
           "terms": [
-            "evidence"
-          ]
+            "evidence",
+            "incomplete"
+          ],
+          "match_mode": "any",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "avoid review equals proof",
           "triggered": true,
+          "hits": 1,
           "terms": [
             "review complete therefore validated"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [
@@ -61,25 +71,35 @@
         {
           "label": "mentions validation gap",
           "passed": true,
+          "hits": 1,
           "terms": [
             "validation"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         },
         {
           "label": "mentions evidence gap",
           "passed": true,
+          "hits": 2,
           "terms": [
-            "evidence"
-          ]
+            "evidence",
+            "incomplete"
+          ],
+          "match_mode": "any",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "avoid review equals proof",
           "triggered": false,
+          "hits": 0,
           "terms": [
             "review complete therefore validated"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [

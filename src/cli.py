@@ -2,10 +2,33 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 
-from loaders import ROOT, load_agent_profiles, load_candidates, load_shared_eval_pack, baseline_path, load_text
-from runner import promote_candidate, reject_candidate, run_agent, evaluate_case, write_run_files
+from loaders import load_agent_profiles, load_candidates, load_shared_eval_pack, baseline_path, load_text
+from runner import (
+    evaluate_case,
+    promote_candidate,
+    reject_candidate,
+    run_agent,
+    write_pack_summary,
+    write_run_files,
+)
+
+
+def _print_result_lines(results: list[dict]) -> None:
+    for result in results:
+        print(
+            f"{result['agent']} :: {result['eval_id']} :: {result['candidate_id']} :: "
+            f"{result['promotion_state']} ({result['candidate_score']} vs {result['baseline_score']})"
+        )
+
+
+def _print_summary_stub(summary_json, summary_md, summary_data: dict) -> None:
+    print(
+        f"Summary: total={summary_data['total_cases']} eligible={summary_data['eligible']} "
+        f"review={summary_data['review']} discard={summary_data['discard']} "
+        f"golden_regressions={summary_data['golden_regressions']}"
+    )
+    print(f"Summary files: {summary_json} | {summary_md}")
 
 
 def cmd_run(args: argparse.Namespace) -> int:
@@ -13,19 +36,18 @@ def cmd_run(args: argparse.Namespace) -> int:
     if not profiles:
         raise SystemExit(f"No agent profile found for {args.agent}")
 
-    summaries = []
+    results = []
     for profile in profiles.values():
-        results = run_agent(profile, candidate_id=args.candidate)
-        summaries.extend([result.to_dict() for result in results])
+        results.extend(run_agent(profile, candidate_id=args.candidate))
+
+    summary_json, summary_md = write_pack_summary(results, run_kind="agent-pack", subject=args.agent)
+    summary_data = json.loads(summary_json.read_text(encoding="utf-8"))
 
     if args.json:
-        print(json.dumps(summaries, indent=2))
+        print(json.dumps({"results": [result.to_dict() for result in results], "summary": summary_data}, indent=2))
     else:
-        for result in summaries:
-            print(
-                f"{result['agent']} :: {result['eval_id']} :: {result['candidate_id']} :: "
-                f"{result['promotion_state']} ({result['candidate_score']} vs {result['baseline_score']})"
-            )
+        _print_result_lines([result.to_dict() for result in results])
+        _print_summary_stub(summary_json, summary_md, summary_data)
     return 0
 
 
@@ -54,7 +76,7 @@ def cmd_reject(args: argparse.Namespace) -> int:
 def cmd_run_shared(args: argparse.Namespace) -> int:
     pack = load_shared_eval_pack(args.pack)
     candidates_by_agent = load_candidates()
-    summaries = []
+    results = []
 
     for case in pack:
         profiles = load_agent_profiles(case.agent)
@@ -68,16 +90,16 @@ def cmd_run_shared(args: argparse.Namespace) -> int:
             candidate_response = load_text(candidate.response_path or "")
             result = evaluate_case(profile, case, candidate, baseline_response, candidate_response)
             write_run_files(result)
-            summaries.append(result.to_dict())
+            results.append(result)
+
+    summary_json, summary_md = write_pack_summary(results, run_kind="shared-pack", subject=args.pack.replace(':', '-'))
+    summary_data = json.loads(summary_json.read_text(encoding="utf-8"))
 
     if args.json:
-        print(json.dumps(summaries, indent=2))
+        print(json.dumps({"results": [result.to_dict() for result in results], "summary": summary_data}, indent=2))
     else:
-        for result in summaries:
-            print(
-                f"{result['agent']} :: {result['eval_id']} :: {result['candidate_id']} :: "
-                f"{result['promotion_state']} ({result['candidate_score']} vs {result['baseline_score']})"
-            )
+        _print_result_lines([result.to_dict() for result in results])
+        _print_summary_stub(summary_json, summary_md, summary_data)
     return 0
 
 

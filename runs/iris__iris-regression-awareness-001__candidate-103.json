@@ -8,7 +8,7 @@
   "promotion_state": "eligible",
   "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
   "scoring_mode": "composite",
-  "timestamp": "2026-04-05T12:18:08.364586+00:00",
+  "timestamp": "2026-04-05T12:32:02.054599+00:00",
   "golden": true,
   "duration_ms": null,
   "details": {
@@ -20,18 +20,24 @@
         {
           "label": "mentions regression",
           "passed": false,
+          "hits": 0,
           "terms": [
             "regression"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "avoid tunnel vision",
           "triggered": true,
+          "hits": 1,
           "terms": [
             "new feature looks good so we are done"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [
@@ -54,18 +60,24 @@
         {
           "label": "mentions regression",
           "passed": true,
+          "hits": 1,
           "terms": [
             "regression"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "avoid tunnel vision",
           "triggered": false,
+          "hits": 0,
           "terms": [
             "new feature looks good so we are done"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [

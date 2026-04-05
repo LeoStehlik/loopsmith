@@ -24,6 +24,8 @@ Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 3. file-driven runner + CLI
 4. stronger Iris and Rex packs
 5. anti-bullshit golden cases
+6. pack-level review summaries
+7. stronger shared-pack review flow
 
 ## Core model
 
@@ -75,8 +77,8 @@ The other agents still ship with lighter starter packs while the core is being h
 - `ledger/` — promotion history
 - `policies/` — mutation boundaries and promotion rules
 - `runs/` — generated run logs and summaries
-- `src/` — schemas, scoring, loaders, runner, CLI
-- `docs/` — design notes, usage, and sanitisation notes
+- `src/` — schemas, scoring, loaders, runner, CLI, summaries
+- `docs/` — design notes, usage, review flow, and sanitisation notes
 
 ## CLI examples
 
@@ -97,3 +99,11 @@ Loopsmith is not just for checking success paths. It is also for catching trust-
 - false completion claims
 - vague QA verdicts
 - other forms of operational bullshit
+
+## Why summaries matter
+
+Once a pack has more than a couple of cases, case-by-case review becomes noisy. Loopsmith now writes pack-level summaries so a human can quickly see:
+- what is promotion-eligible
+- what needs review
+- what should be discarded
+- whether any golden case regressed

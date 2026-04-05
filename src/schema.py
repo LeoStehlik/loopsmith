@@ -8,6 +8,7 @@ ScoreMode = Literal["pass_fail", "rubric", "composite"]
 Verdict = Literal["keep", "discard", "review"]
 PromotionState = Literal["eligible", "discard", "review", "promoted", "rejected"]
 RiskLevel = Literal["L1", "L2", "L3"]
+MatchMode = Literal["all", "any"]
 
 
 def utc_now_iso() -> str:
@@ -18,6 +19,8 @@ def utc_now_iso() -> str:
 class CheckRule:
     label: str
     terms: List[str] = field(default_factory=list)
+    match_mode: MatchMode = "all"
+    min_terms: Optional[int] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)

@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-04-05T12:32:02.180896+00:00",
+  "run_kind": "agent-pack",
+  "subject": "rex",
+  "total_cases": 3,
+  "eligible": 3,
+  "discard": 0,
+  "review": 0,
+  "golden_regressions": 0,
+  "eligible_candidates": [
+    "rex:candidate-201",
+    "rex:candidate-202",
+    "rex:candidate-203"
+  ],
+  "review_candidates": [],
+  "discarded_candidates": [],
+  "golden_regression_cases": [],
+  "by_agent": {
+    "rex": {
+      "count": 3,
+      "eligible": 3,
+      "discard": 0,
+      "review": 0,
+      "golden_regressions": 0,
+      "cases": [
+        {
+          "eval_id": "rex-cumulative-regression-001",
+          "candidate_id": "candidate-201",
+          "promotion_state": "eligible",
+          "delta": 1.0,
+          "golden": true
+        },
+        {
+          "eval_id": "rex-environment-sanity-001",
+          "candidate_id": "candidate-202",
+          "promotion_state": "eligible",
+          "delta": 1.0,
+          "golden": false
+        },
+        {
+          "eval_id": "rex-layered-reporting-001",
+          "candidate_id": "candidate-203",
+          "promotion_state": "eligible",
+          "delta": 1.0,
+          "golden": true
+        }
+      ]
+    }
+  }
+}

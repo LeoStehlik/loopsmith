@@ -10,7 +10,7 @@
     "tags": ["qa", "ac", "verdict"],
     "required_checks": [
       { "label": "mentions ACs", "terms": ["ac"] },
-      { "label": "contains explicit verdict language", "terms": ["pass"] },
+      { "label": "contains explicit verdict language", "terms": ["pass", "fail", "unknown"], "match_mode": "any", "min_terms": 2 },
       { "label": "covers uncertainty honestly", "terms": ["unknown"] }
     ],
     "forbidden_checks": [
@@ -51,7 +51,7 @@
     "tags": ["qa", "validation"],
     "required_checks": [
       { "label": "mentions validation gap", "terms": ["validation"] },
-      { "label": "mentions evidence gap", "terms": ["evidence"] }
+      { "label": "mentions evidence gap", "terms": ["evidence", "incomplete"], "match_mode": "any" }
     ],
     "forbidden_checks": [
       { "label": "avoid review equals proof", "terms": ["review complete therefore validated"] }

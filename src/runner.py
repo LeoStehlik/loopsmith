@@ -7,13 +7,16 @@ from typing import List
 from loaders import ROOT, baseline_path, load_candidates, load_eval_pack, load_text
 from schema import AgentProfile, CandidateChange, EvalCase, EvalResult, PromotionRecord, utc_now_iso
 from scoring import score_case
+from summaries import build_summary, write_summary
 
 RUNS_DIR = ROOT / "runs"
+SUMMARIES_DIR = RUNS_DIR / "summaries"
 LEDGER_PATH = ROOT / "ledger" / "promotion-log.jsonl"
 
 
 def ensure_dirs() -> None:
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    SUMMARIES_DIR.mkdir(parents=True, exist_ok=True)
     LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 
@@ -91,6 +94,12 @@ def write_run_files(result: EvalResult) -> tuple[Path, Path]:
         encoding="utf-8",
     )
     return json_path, md_path
+
+
+def write_pack_summary(results: List[EvalResult], run_kind: str, subject: str) -> tuple[Path, Path]:
+    ensure_dirs()
+    summary = build_summary(results, run_kind=run_kind, subject=subject)
+    return write_summary(summary, SUMMARIES_DIR)
 
 
 def append_ledger(record: PromotionRecord) -> None:

@@ -8,7 +8,7 @@
   "promotion_state": "eligible",
   "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
   "scoring_mode": "composite",
-  "timestamp": "2026-04-05T12:18:08.630661+00:00",
+  "timestamp": "2026-04-05T12:32:02.301032+00:00",
   "golden": false,
   "duration_ms": null,
   "details": {
@@ -20,18 +20,24 @@
         {
           "label": "explicit verdict",
           "passed": false,
+          "hits": 0,
           "terms": [
             "pass"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "no vague verdict",
           "triggered": true,
+          "hits": 1,
           "terms": [
             "looks good overall"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [
@@ -54,18 +60,24 @@
         {
           "label": "explicit verdict",
           "passed": true,
+          "hits": 1,
           "terms": [
             "pass"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "forbidden_checks": [
         {
           "label": "no vague verdict",
           "triggered": false,
+          "hits": 0,
           "terms": [
             "looks good overall"
-          ]
+          ],
+          "match_mode": "all",
+          "min_terms": null
         }
       ],
       "rubric_dimensions": [
