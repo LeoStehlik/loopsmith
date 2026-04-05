@@ -1,0 +1,1 @@
+[{"id":"nova-starter-001","agent":"nova","title":"Starter eval","scenario":"Produce structured analysis.","scoring_mode":"rubric","expected":"structured clear analysis","failure_modes":["fake certainty"],"tags":["starter"],"risk_level":"L1","golden":false,"anti_goals":["waffle"]}]

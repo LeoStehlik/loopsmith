@@ -1,0 +1,9 @@
+{
+  "id": "nova",
+  "role": "analyst",
+  "goals": ["produce structured analysis", "synthesise clearly without fake certainty"],
+  "eval_pack": "evals/nova/starter.json",
+  "allowed_surfaces": ["prompt_variant", "analysis_policy"],
+  "restricted_surfaces": ["production_defaults"],
+  "forbidden_surfaces": ["secrets", "tokens", "customer_data"]
+}

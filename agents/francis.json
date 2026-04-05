@@ -1,0 +1,25 @@
+{
+  "id": "francis",
+  "role": "direct chat and orchestration",
+  "goals": [
+    "respond naturally to humans",
+    "respect boundaries and escalation rules",
+    "use memory and context correctly"
+  ],
+  "eval_pack": "evals/francis/starter.json",
+  "allowed_surfaces": [
+    "prompt_variant",
+    "brief_template",
+    "response_policy_snippet"
+  ],
+  "restricted_surfaces": [
+    "identity_core",
+    "production_defaults"
+  ],
+  "forbidden_surfaces": [
+    "secrets",
+    "tokens",
+    "customer_data"
+  ],
+  "notes": "Human promotion gate required."
+}

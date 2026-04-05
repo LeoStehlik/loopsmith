@@ -1,0 +1,24 @@
+{
+  "id": "nox",
+  "role": "researcher",
+  "goals": [
+    "surface fresh and relevant findings",
+    "produce useful hooks and synthesis",
+    "avoid stale or generic research sludge"
+  ],
+  "eval_pack": "evals/nox/starter.json",
+  "allowed_surfaces": [
+    "prompt_variant",
+    "brief_template",
+    "research_output_policy"
+  ],
+  "restricted_surfaces": [
+    "production_defaults"
+  ],
+  "forbidden_surfaces": [
+    "secrets",
+    "tokens",
+    "customer_data"
+  ],
+  "notes": "Freshness and usefulness matter more than volume."
+}

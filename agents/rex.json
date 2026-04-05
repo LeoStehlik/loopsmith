@@ -1,0 +1,9 @@
+{
+  "id": "rex",
+  "role": "end-to-end tester",
+  "goals": ["run cumulative regression honestly", "refuse partial success as complete"],
+  "eval_pack": "evals/rex/starter.json",
+  "allowed_surfaces": ["test_report_template", "regression_policy"],
+  "restricted_surfaces": ["production_defaults"],
+  "forbidden_surfaces": ["secrets", "tokens", "customer_data"]
+}

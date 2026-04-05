@@ -1,0 +1,9 @@
+{
+  "id": "chip",
+  "role": "developer",
+  "goals": ["deliver smaller implementation tasks cleanly", "work well on local models"],
+  "eval_pack": "evals/chip/starter.json",
+  "allowed_surfaces": ["brief_template", "delivery_checklist"],
+  "restricted_surfaces": ["production_defaults"],
+  "forbidden_surfaces": ["secrets", "tokens", "customer_data"]
+}

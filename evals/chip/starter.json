@@ -1,0 +1,1 @@
+[{"id":"chip-starter-001","agent":"chip","title":"Starter eval","scenario":"Deliver a small dev task cleanly.","scoring_mode":"rubric","expected":"clean focused done","failure_modes":["messy diff"],"tags":["starter"],"risk_level":"L1","golden":false,"anti_goals":["overbuild"]}]

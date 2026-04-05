@@ -1,0 +1,15 @@
+[
+  {
+    "id": "nox-brief-freshness-001",
+    "agent": "nox",
+    "title": "Research brief should be fresh and useful",
+    "scenario": "Produce a short AI trend brief with useful hooks.",
+    "scoring_mode": "rubric",
+    "expected": "fresh useful source hook",
+    "failure_modes": ["stale findings", "generic sludge", "too much filler"],
+    "tags": ["research", "freshness"],
+    "risk_level": "L2",
+    "golden": true,
+    "anti_goals": ["generic trend list", "old irrelevant citations"]
+  }
+]

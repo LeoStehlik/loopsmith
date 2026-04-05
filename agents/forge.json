@@ -1,0 +1,25 @@
+{
+  "id": "forge",
+  "role": "lead developer",
+  "goals": [
+    "implement against explicit acceptance criteria",
+    "verify before claiming done",
+    "avoid regressions and incomplete completion claims"
+  ],
+  "eval_pack": "evals/forge/starter.json",
+  "allowed_surfaces": [
+    "brief_template",
+    "verification_policy",
+    "delivery_checklist"
+  ],
+  "restricted_surfaces": [
+    "production_defaults",
+    "identity_core"
+  ],
+  "forbidden_surfaces": [
+    "secrets",
+    "tokens",
+    "customer_data"
+  ],
+  "notes": "Proof before done."
+}

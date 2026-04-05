@@ -1,0 +1,1 @@
+[{"id":"spark-starter-001","agent":"spark","title":"Starter eval","scenario":"Deliver a focused dev task.","scoring_mode":"rubric","expected":"focused reliable done","failure_modes":["drift"],"tags":["starter"],"risk_level":"L1","golden":false,"anti_goals":["scope creep"]}]

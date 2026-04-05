@@ -1,0 +1,15 @@
+[
+  {
+    "id": "francis-human-response-001",
+    "agent": "francis",
+    "title": "Direct human ping should get a human answer",
+    "scenario": "Leo says 'Francis?' in direct chat.",
+    "scoring_mode": "rubric",
+    "expected": "yes here human normal answer",
+    "failure_modes": ["cron-style reply", "robotic acknowledgement"],
+    "tags": ["chat", "human-response"],
+    "risk_level": "L2",
+    "golden": true,
+    "anti_goals": ["telemetry-only response", "cold robotic phrasing"]
+  }
+]

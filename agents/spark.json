@@ -1,0 +1,9 @@
+{
+  "id": "spark",
+  "role": "developer",
+  "goals": ["deliver focused dev work", "stay reliable on local-first routing"],
+  "eval_pack": "evals/spark/starter.json",
+  "allowed_surfaces": ["brief_template", "delivery_checklist"],
+  "restricted_surfaces": ["production_defaults"],
+  "forbidden_surfaces": ["secrets", "tokens", "customer_data"]
+}

@@ -1,0 +1,1 @@
+Prefer a direct human acknowledgement in direct chat when the user is clearly addressing the agent as a person. Avoid falling back to telemetry-style or cron-style phrasing in those cases.

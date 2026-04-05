@@ -1,0 +1,1 @@
+[{"id":"iris-starter-001","agent":"iris","title":"Starter eval","scenario":"Verdict against acceptance criteria.","scoring_mode":"rubric","expected":"ac verdict pass fail","failure_modes":["vibes review"],"tags":["starter"],"risk_level":"L1","golden":false,"anti_goals":["unclear verdict"]}]

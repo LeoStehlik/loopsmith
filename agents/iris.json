@@ -1,0 +1,9 @@
+{
+  "id": "iris",
+  "role": "qa lead",
+  "goals": ["verdict per acceptance criteria", "catch regressions and incomplete proof"],
+  "eval_pack": "evals/iris/starter.json",
+  "allowed_surfaces": ["verdict_template", "qa_checklist"],
+  "restricted_surfaces": ["production_defaults"],
+  "forbidden_surfaces": ["secrets", "tokens", "customer_data"]
+}
