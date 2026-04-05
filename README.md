@@ -1,6 +1,9 @@
 # Loopsmith
 
-Loopsmith is an eval-driven framework for improving multi-agent systems through controlled candidate changes, evidence-based comparison, and explicit promotion boundaries.
+**Loopsmith** is an eval-driven framework for improving multi-agent systems through controlled candidate changes, evidence-based comparison, and explicit promotion boundaries.
+
+**Tagline:** Improve agents the way you improve software: define the eval, test the candidate, keep only what survives evidence.
+
 
 ## V1 scope
 
