@@ -1,0 +1,13 @@
+{
+  "id": "candidate-001",
+  "agent": "francis",
+  "eval_id": "francis-human-response-001",
+  "surface": "response_policy_snippet",
+  "description": "Prefer direct human acknowledgement over system-style reply in direct chat.",
+  "risk_level": "L2",
+  "path": "candidates/francis/response-policy-v1.md",
+  "response_path": "candidates/francis/responses/candidate-001.txt",
+  "metadata": {
+    "kind": "demo"
+  }
+}

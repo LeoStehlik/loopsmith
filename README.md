@@ -5,18 +5,24 @@
 **Tagline:** Improve agents the way you improve software: define the eval, test the candidate, keep only what survives evidence.
 
 
-## V1 scope
+## Current status
 
-Loopsmith v1 focuses on the shortest path to something real:
+Loopsmith shipped a real v1 and is now moving through the next hardening pass.
 
+### V1 delivered
 1. repo skeleton
-2. eval schema
-3. run logging schema
+2. initial eval schema
+3. initial run logging schema
 4. mutation boundaries
-5. loop runner
+5. first loop runner
 6. 3 strong demo agents
 7. starter packs for the rest
 8. public sanitisation
+
+### V2 focus
+1. better scoring (`pass_fail`, `rubric`, `composite`)
+2. promotion flow with human approval
+3. file-driven runner + CLI
 
 ## Core model
 
@@ -59,12 +65,20 @@ The other agents ship with starter profiles and starter eval packs in v1.
 
 - `agents/` — agent profiles
 - `evals/` — eval pack definitions
-- `policies/` — mutation boundaries and promotion rules
+- `baseline/` — current baseline outputs or fixtures
 - `candidates/` — candidate variants under test
-- `runs/` — generated run logs and results
-- `src/` — loop runner and schemas
-- `docs/` — design notes and sanitisation notes
+- `promoted/` — promoted candidate manifests
+- `rejected/` — rejected candidate manifests
+- `ledger/` — promotion history
+- `policies/` — mutation boundaries and promotion rules
+- `runs/` — generated run logs and summaries
+- `src/` — schemas, scoring, loaders, runner, CLI
+- `docs/` — design notes, usage, and sanitisation notes
 
-## Status
+## CLI examples
 
-This repo is being built privately first inside the OpenClaw workspace. It will only be sanitised and pushed public after the loop is real.
+```bash
+python3 src/cli.py run --agent francis
+python3 src/cli.py run --agent nox --json
+python3 src/cli.py promote --agent francis --candidate candidate-001 --approved-by leo
+```

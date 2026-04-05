@@ -2,18 +2,127 @@
   "eval_id": "nox-brief-freshness-001",
   "agent": "nox",
   "candidate_id": "candidate-002",
-  "baseline_score": 0.0,
+  "baseline_score": 0.25,
   "candidate_score": 1.0,
   "verdict": "keep",
-  "notes": "Candidate improved score over baseline.",
-  "scoring_mode": "rubric",
-  "timestamp": "2026-04-05T11:42:07.823170+00:00",
+  "promotion_state": "eligible",
+  "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
+  "scoring_mode": "composite",
+  "timestamp": "2026-04-05T12:05:26.542046+00:00",
   "golden": true,
   "duration_ms": null,
-  "metadata": {
+  "details": {
     "surface": "research_output_policy",
     "title": "Research brief should be fresh and useful",
-    "risk_level": "L2"
+    "risk_level": "L2",
+    "baseline": {
+      "required_checks": [
+        {
+          "label": "mentions freshness",
+          "passed": false,
+          "terms": [
+            "fresh"
+          ]
+        },
+        {
+          "label": "mentions source grounding",
+          "passed": false,
+          "terms": [
+            "source"
+          ]
+        },
+        {
+          "label": "mentions usefulness",
+          "passed": false,
+          "terms": [
+            "useful"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid stale framing",
+          "triggered": false,
+          "terms": [
+            "stale findings"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "freshness",
+          "label": "Freshness",
+          "score": 0.0,
+          "weight": 1.2,
+          "positive_hits": 0,
+          "negative_hits": 0
+        },
+        {
+          "id": "utility",
+          "label": "Utility",
+          "score": 0.0,
+          "weight": 1.0,
+          "positive_hits": 0,
+          "negative_hits": 0
+        }
+      ],
+      "anti_goal_hits": [],
+      "anti_goal_penalty": 0.0
+    },
+    "candidate": {
+      "required_checks": [
+        {
+          "label": "mentions freshness",
+          "passed": true,
+          "terms": [
+            "fresh"
+          ]
+        },
+        {
+          "label": "mentions source grounding",
+          "passed": true,
+          "terms": [
+            "source"
+          ]
+        },
+        {
+          "label": "mentions usefulness",
+          "passed": true,
+          "terms": [
+            "useful"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid stale framing",
+          "triggered": false,
+          "terms": [
+            "stale findings"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "freshness",
+          "label": "Freshness",
+          "score": 1.0,
+          "weight": 1.2,
+          "positive_hits": 2,
+          "negative_hits": 0
+        },
+        {
+          "id": "utility",
+          "label": "Utility",
+          "score": 1.0,
+          "weight": 1.0,
+          "positive_hits": 2,
+          "negative_hits": 0
+        }
+      ],
+      "anti_goal_hits": [],
+      "anti_goal_penalty": 0.0
+    }
   },
-  "delta": 1.0
+  "delta": 0.75
 }

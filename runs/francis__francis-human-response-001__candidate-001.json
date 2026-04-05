@@ -3,17 +3,100 @@
   "agent": "francis",
   "candidate_id": "candidate-001",
   "baseline_score": 0.0,
-  "candidate_score": 0.4,
+  "candidate_score": 0.9,
   "verdict": "keep",
-  "notes": "Candidate improved score over baseline.",
-  "scoring_mode": "rubric",
-  "timestamp": "2026-04-05T11:42:07.821993+00:00",
+  "promotion_state": "eligible",
+  "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
+  "scoring_mode": "composite",
+  "timestamp": "2026-04-05T12:05:26.426034+00:00",
   "golden": true,
   "duration_ms": null,
-  "metadata": {
+  "details": {
     "surface": "response_policy_snippet",
     "title": "Direct human ping should get a human answer",
-    "risk_level": "L2"
+    "risk_level": "L2",
+    "baseline": {
+      "required_checks": [
+        {
+          "label": "direct acknowledgement",
+          "passed": false,
+          "terms": [
+            "here"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "must not answer with heartbeat ack",
+          "triggered": true,
+          "terms": [
+            "heartbeat_ok"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "human-tone",
+          "label": "Human tone",
+          "score": 0.0,
+          "weight": 1.0,
+          "positive_hits": 0,
+          "negative_hits": 0
+        },
+        {
+          "id": "directness",
+          "label": "Directness",
+          "score": 0.0,
+          "weight": 1.0,
+          "positive_hits": 0,
+          "negative_hits": 1
+        }
+      ],
+      "anti_goal_hits": [
+        "heartbeat_ok"
+      ],
+      "anti_goal_penalty": 0.2
+    },
+    "candidate": {
+      "required_checks": [
+        {
+          "label": "direct acknowledgement",
+          "passed": true,
+          "terms": [
+            "here"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "must not answer with heartbeat ack",
+          "triggered": false,
+          "terms": [
+            "heartbeat_ok"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "human-tone",
+          "label": "Human tone",
+          "score": 1.0,
+          "weight": 1.0,
+          "positive_hits": 2,
+          "negative_hits": 0
+        },
+        {
+          "id": "directness",
+          "label": "Directness",
+          "score": 0.5,
+          "weight": 1.0,
+          "positive_hits": 1,
+          "negative_hits": 0
+        }
+      ],
+      "anti_goal_hits": [],
+      "anti_goal_penalty": 0.0
+    }
   },
-  "delta": 0.4
+  "delta": 0.9
 }

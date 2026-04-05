@@ -1,39 +1,45 @@
 # Loopsmith Build Plan
 
-## Shortest path to something real
+## V1 delivered
 
-1. repo skeleton
-2. eval schema
-3. run logging schema
-4. mutation boundaries
-5. loop runner
-6. 3 strong demo agents
-7. starter packs for the rest
-8. public sanitisation
+- repo skeleton
+- initial eval schema
+- initial run logging schema
+- mutation boundaries
+- first loop runner
+- 3 demo agents
+- starter packs for the rest
+- public sanitisation
 
-## V1 deep demos
+## V2 focus
+
+### Phase 1 — Scoring
+- support `pass_fail`, `rubric`, and `composite`
+- add hard checks, rubric dimensions, and anti-goals as schema-level concepts
+- keep golden cases as regression guards
+
+### Phase 2 — Promotion flow
+- explicit `baseline/`, `candidates/`, `promoted/`, and `rejected/` states
+- human review gate for promotion
+- durable promotion ledger
+
+### Phase 3 — File-driven runner
+- load profiles from `agents/`
+- load evals from `evals/`
+- load candidates from `candidates/`
+- provide a real CLI
+- emit machine-readable and human-readable outputs
+
+## V2 deep demos
 
 - Francis
 - Nox
 - Forge
 
-## Starter packs only in v1
+## Deferred until after core hardening
 
-- Chip
-- Spark
-- Nova
-- Iris
-- Rex
-
-## Golden cases
-
-Golden cases are evals that must not regress.
-
-Examples:
-- Francis answers a direct human ping like a human, not a daemon
-- Nox brief contains fresh, useful output rather than stale sludge
-- Forge does not claim completion without proof
-
-## Public repo rule
-
-Build privately first. Publish only once the loop is real and the repo has been sanitised.
+- deep expansion of Iris and Rex
+- broader pack depth for Chip, Spark, and Nova
+- hidden case sophistication beyond core support
+- judge-model scoring
+- UI or hosted service work

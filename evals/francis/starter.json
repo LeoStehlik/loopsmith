@@ -4,12 +4,38 @@
     "agent": "francis",
     "title": "Direct human ping should get a human answer",
     "scenario": "Leo says 'Francis?' in direct chat.",
-    "scoring_mode": "rubric",
-    "expected": "yes here human normal answer",
-    "failure_modes": ["cron-style reply", "robotic acknowledgement"],
-    "tags": ["chat", "human-response"],
-    "risk_level": "L2",
+    "scoring_mode": "composite",
     "golden": true,
-    "anti_goals": ["telemetry-only response", "cold robotic phrasing"]
+    "risk_level": "L2",
+    "tags": ["chat", "human-response"],
+    "required_checks": [
+      { "label": "direct acknowledgement", "terms": ["here"] }
+    ],
+    "forbidden_checks": [
+      { "label": "must not answer with heartbeat ack", "terms": ["heartbeat_ok"] }
+    ],
+    "rubric_dimensions": [
+      {
+        "id": "human-tone",
+        "label": "Human tone",
+        "weight": 1.0,
+        "positive_terms": ["yes", "here"],
+        "negative_terms": ["robotic", "telemetry-only response"],
+        "guidance": "Direct human acknowledgement over daemon-style phrasing."
+      },
+      {
+        "id": "directness",
+        "label": "Directness",
+        "weight": 1.0,
+        "positive_terms": ["i'm", "here"],
+        "negative_terms": ["heartbeat_ok"],
+        "guidance": "Respond like a person being addressed."
+      }
+    ],
+    "anti_goals": ["telemetry-only response", "cold robotic phrasing", "heartbeat_ok"],
+    "weights": {
+      "hard_checks": 0.6,
+      "rubric": 0.4
+    }
   }
 ]
