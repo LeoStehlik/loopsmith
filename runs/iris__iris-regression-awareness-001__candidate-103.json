@@ -1,0 +1,86 @@
+{
+  "eval_id": "iris-regression-awareness-001",
+  "agent": "iris",
+  "candidate_id": "candidate-103",
+  "baseline_score": 0.0,
+  "candidate_score": 0.85,
+  "verdict": "keep",
+  "promotion_state": "eligible",
+  "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
+  "scoring_mode": "composite",
+  "timestamp": "2026-04-05T12:18:08.364586+00:00",
+  "golden": true,
+  "duration_ms": null,
+  "details": {
+    "surface": "qa_checklist",
+    "title": "Iris must call out regression risk explicitly",
+    "risk_level": "L2",
+    "baseline": {
+      "required_checks": [
+        {
+          "label": "mentions regression",
+          "passed": false,
+          "terms": [
+            "regression"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid tunnel vision",
+          "triggered": true,
+          "terms": [
+            "new feature looks good so we are done"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "regression-awareness",
+          "label": "Regression awareness",
+          "score": 0.0,
+          "weight": 1.0,
+          "positive_hits": 0,
+          "negative_hits": 1
+        }
+      ],
+      "anti_goal_hits": [
+        "new feature looks good so we are done"
+      ],
+      "anti_goal_penalty": 0.2
+    },
+    "candidate": {
+      "required_checks": [
+        {
+          "label": "mentions regression",
+          "passed": true,
+          "terms": [
+            "regression"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid tunnel vision",
+          "triggered": false,
+          "terms": [
+            "new feature looks good so we are done"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "regression-awareness",
+          "label": "Regression awareness",
+          "score": 0.5,
+          "weight": 1.0,
+          "positive_hits": 1,
+          "negative_hits": 1
+        }
+      ],
+      "anti_goal_hits": [],
+      "anti_goal_penalty": 0.0
+    }
+  },
+  "delta": 0.85
+}

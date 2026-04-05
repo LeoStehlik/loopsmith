@@ -1,0 +1,10 @@
+{
+  "id": "candidate-203",
+  "agent": "rex",
+  "eval_id": "rex-layered-reporting-001",
+  "surface": "test_report_template",
+  "description": "Report pass/fail per sprint layer instead of flattening results.",
+  "risk_level": "L2",
+  "response_path": "candidates/rex/responses/candidate-203.txt",
+  "metadata": { "kind": "demo" }
+}

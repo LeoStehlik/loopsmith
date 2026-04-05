@@ -1,0 +1,10 @@
+{
+  "id": "candidate-101",
+  "agent": "iris",
+  "eval_id": "iris-ac-verdict-001",
+  "surface": "verdict_template",
+  "description": "Verdict per AC using PASS / FAIL / UNKNOWN explicitly.",
+  "risk_level": "L2",
+  "response_path": "candidates/iris/responses/candidate-101.txt",
+  "metadata": { "kind": "demo" }
+}

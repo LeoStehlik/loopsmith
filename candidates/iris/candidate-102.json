@@ -1,0 +1,10 @@
+{
+  "id": "candidate-102",
+  "agent": "iris",
+  "eval_id": "iris-review-vs-validation-001",
+  "surface": "qa_checklist",
+  "description": "Call out validation gaps explicitly instead of confusing review with proof.",
+  "risk_level": "L2",
+  "response_path": "candidates/iris/responses/candidate-102.txt",
+  "metadata": { "kind": "demo" }
+}

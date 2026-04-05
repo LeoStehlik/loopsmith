@@ -1,0 +1,100 @@
+{
+  "eval_id": "iris-review-vs-validation-001",
+  "agent": "iris",
+  "candidate_id": "candidate-102",
+  "baseline_score": 0.0,
+  "candidate_score": 1.0,
+  "verdict": "keep",
+  "promotion_state": "eligible",
+  "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
+  "scoring_mode": "composite",
+  "timestamp": "2026-04-05T12:18:08.363723+00:00",
+  "golden": false,
+  "duration_ms": null,
+  "details": {
+    "surface": "qa_checklist",
+    "title": "Iris must distinguish review from validation",
+    "risk_level": "L2",
+    "baseline": {
+      "required_checks": [
+        {
+          "label": "mentions validation gap",
+          "passed": false,
+          "terms": [
+            "validation"
+          ]
+        },
+        {
+          "label": "mentions evidence gap",
+          "passed": false,
+          "terms": [
+            "evidence"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid review equals proof",
+          "triggered": true,
+          "terms": [
+            "review complete therefore validated"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "validation-boundary",
+          "label": "Validation boundary",
+          "score": 0.0,
+          "weight": 1.0,
+          "positive_hits": 0,
+          "negative_hits": 1
+        }
+      ],
+      "anti_goal_hits": [
+        "review complete therefore validated"
+      ],
+      "anti_goal_penalty": 0.2
+    },
+    "candidate": {
+      "required_checks": [
+        {
+          "label": "mentions validation gap",
+          "passed": true,
+          "terms": [
+            "validation"
+          ]
+        },
+        {
+          "label": "mentions evidence gap",
+          "passed": true,
+          "terms": [
+            "evidence"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid review equals proof",
+          "triggered": false,
+          "terms": [
+            "review complete therefore validated"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "validation-boundary",
+          "label": "Validation boundary",
+          "score": 1.0,
+          "weight": 1.0,
+          "positive_hits": 2,
+          "negative_hits": 0
+        }
+      ],
+      "anti_goal_hits": [],
+      "anti_goal_penalty": 0.0
+    }
+  },
+  "delta": 1.0
+}

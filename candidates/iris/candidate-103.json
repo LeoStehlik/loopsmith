@@ -1,0 +1,10 @@
+{
+  "id": "candidate-103",
+  "agent": "iris",
+  "eval_id": "iris-regression-awareness-001",
+  "surface": "qa_checklist",
+  "description": "Force explicit regression-risk callout before any positive verdict.",
+  "risk_level": "L2",
+  "response_path": "candidates/iris/responses/candidate-103.txt",
+  "metadata": { "kind": "demo" }
+}

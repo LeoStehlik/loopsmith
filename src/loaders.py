@@ -13,6 +13,11 @@ def _read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+SHARED_EVAL_PACKS = {
+    "golden:anti-bullshit": "evals/golden/anti-bullshit.json",
+}
+
+
 def load_agent_profiles(agent_id: str | None = None) -> Dict[str, AgentProfile]:
     agents_dir = ROOT / "agents"
     profiles: Dict[str, AgentProfile] = {}
@@ -72,6 +77,13 @@ def load_candidates(agent_id: str | None = None) -> Dict[str, List[CandidateChan
 
 def load_text(relative_path: str) -> str:
     return (ROOT / relative_path).read_text(encoding="utf-8")
+
+
+def load_shared_eval_pack(name: str) -> List[EvalCase]:
+    path = SHARED_EVAL_PACKS.get(name)
+    if not path:
+        raise ValueError(f"Unknown shared eval pack: {name}")
+    return load_eval_pack(path)
 
 
 def baseline_path(agent: str, eval_id: str) -> Path:

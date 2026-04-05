@@ -1,0 +1,10 @@
+{
+  "id": "candidate-201",
+  "agent": "rex",
+  "eval_id": "rex-cumulative-regression-001",
+  "surface": "regression_policy",
+  "description": "Require full regression honesty before any pass claim.",
+  "risk_level": "L2",
+  "response_path": "candidates/rex/responses/candidate-201.txt",
+  "metadata": { "kind": "demo" }
+}

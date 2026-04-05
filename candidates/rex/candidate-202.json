@@ -1,0 +1,10 @@
+{
+  "id": "candidate-202",
+  "agent": "rex",
+  "eval_id": "rex-environment-sanity-001",
+  "surface": "regression_policy",
+  "description": "Check preconditions before running acceptance tests.",
+  "risk_level": "L2",
+  "response_path": "candidates/rex/responses/candidate-202.txt",
+  "metadata": { "kind": "demo" }
+}

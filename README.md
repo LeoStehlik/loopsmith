@@ -4,10 +4,9 @@
 
 **Tagline:** Improve agents the way you improve software: define the eval, test the candidate, keep only what survives evidence.
 
-
 ## Current status
 
-Loopsmith shipped a real v1 and is now moving through the next hardening pass.
+Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 
 ### V1 delivered
 1. repo skeleton
@@ -19,10 +18,12 @@ Loopsmith shipped a real v1 and is now moving through the next hardening pass.
 7. starter packs for the rest
 8. public sanitisation
 
-### V2 focus
+### V2 delivered so far
 1. better scoring (`pass_fail`, `rubric`, `composite`)
 2. promotion flow with human approval
 3. file-driven runner + CLI
+4. stronger Iris and Rex packs
+5. anti-bullshit golden cases
 
 ## Core model
 
@@ -30,7 +31,7 @@ Each loop compares:
 - a **baseline**
 - a **candidate**
 - one or more **eval cases**
-- a **verdict**: keep, discard, or review
+- a **verdict** and **promotion state**
 
 A candidate must improve evidence, not just sound clever.
 
@@ -45,13 +46,15 @@ A candidate must improve evidence, not just sound clever.
 - Iris
 - Rex
 
-## V1 deep demos
+## Current deep areas
 
 - Francis
 - Nox
 - Forge
+- Iris
+- Rex
 
-The other agents ship with starter profiles and starter eval packs in v1.
+The other agents still ship with lighter starter packs while the core is being hardened.
 
 ## Design rules
 
@@ -64,7 +67,7 @@ The other agents ship with starter profiles and starter eval packs in v1.
 ## Layout
 
 - `agents/` — agent profiles
-- `evals/` — eval pack definitions
+- `evals/` — agent and shared eval pack definitions
 - `baseline/` — current baseline outputs or fixtures
 - `candidates/` — candidate variants under test
 - `promoted/` — promoted candidate manifests
@@ -80,5 +83,17 @@ The other agents ship with starter profiles and starter eval packs in v1.
 ```bash
 python3 src/cli.py run --agent francis
 python3 src/cli.py run --agent nox --json
+python3 src/cli.py run --agent iris
+python3 src/cli.py run --agent rex
+python3 src/cli.py run-shared --pack golden:anti-bullshit
 python3 src/cli.py promote --agent francis --candidate candidate-001 --approved-by leo
 ```
+
+## Why the golden pack matters
+
+Loopsmith is not just for checking success paths. It is also for catching trust-killing failure patterns such as:
+- robotic direct-chat replies
+- generic research sludge
+- false completion claims
+- vague QA verdicts
+- other forms of operational bullshit

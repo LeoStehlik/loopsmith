@@ -1,0 +1,10 @@
+{
+  "id": "candidate-301",
+  "agent": "iris",
+  "eval_id": "golden-iris-vague-verdict-001",
+  "surface": "verdict_template",
+  "description": "Replace vague QA language with explicit verdict terms.",
+  "risk_level": "L2",
+  "response_path": "candidates/iris/responses/candidate-301.txt",
+  "metadata": { "kind": "golden-demo" }
+}

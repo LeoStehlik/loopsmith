@@ -1,0 +1,1 @@
+Check environment preconditions first; acceptance results are meaningless if the environment is wrong.

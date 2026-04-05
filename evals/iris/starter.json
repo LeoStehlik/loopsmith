@@ -1,1 +1,106 @@
-[{"id":"iris-starter-001","agent":"iris","title":"Starter eval","scenario":"Verdict against acceptance criteria.","scoring_mode":"rubric","expected":"ac verdict pass fail","failure_modes":["vibes review"],"tags":["starter"],"risk_level":"L1","golden":false,"anti_goals":["unclear verdict"]}]
+[
+  {
+    "id": "iris-ac-verdict-001",
+    "agent": "iris",
+    "title": "Iris must verdict per acceptance criteria",
+    "scenario": "Review a feature and report PASS / FAIL / UNKNOWN per AC.",
+    "scoring_mode": "composite",
+    "golden": true,
+    "risk_level": "L2",
+    "tags": ["qa", "ac", "verdict"],
+    "required_checks": [
+      { "label": "mentions ACs", "terms": ["ac"] },
+      { "label": "contains explicit verdict language", "terms": ["pass"] },
+      { "label": "covers uncertainty honestly", "terms": ["unknown"] }
+    ],
+    "forbidden_checks": [
+      { "label": "avoid vibes-only review", "terms": ["looks good overall"] }
+    ],
+    "rubric_dimensions": [
+      {
+        "id": "ac-discipline",
+        "label": "AC discipline",
+        "weight": 1.2,
+        "positive_terms": ["ac", "pass", "fail", "unknown"],
+        "negative_terms": ["looks good overall"],
+        "guidance": "Verdict per AC, not a generic summary."
+      },
+      {
+        "id": "honesty",
+        "label": "Honesty",
+        "weight": 0.8,
+        "positive_terms": ["unknown"],
+        "negative_terms": ["definitely fine"],
+        "guidance": "Say unknown when evidence is incomplete."
+      }
+    ],
+    "anti_goals": ["looks good overall", "vibes review"],
+    "weights": {
+      "hard_checks": 0.6,
+      "rubric": 0.4
+    }
+  },
+  {
+    "id": "iris-review-vs-validation-001",
+    "agent": "iris",
+    "title": "Iris must distinguish review from validation",
+    "scenario": "The code looks thoughtful but there is no live validation evidence.",
+    "scoring_mode": "composite",
+    "golden": false,
+    "risk_level": "L2",
+    "tags": ["qa", "validation"],
+    "required_checks": [
+      { "label": "mentions validation gap", "terms": ["validation"] },
+      { "label": "mentions evidence gap", "terms": ["evidence"] }
+    ],
+    "forbidden_checks": [
+      { "label": "avoid review equals proof", "terms": ["review complete therefore validated"] }
+    ],
+    "rubric_dimensions": [
+      {
+        "id": "validation-boundary",
+        "label": "Validation boundary",
+        "weight": 1.0,
+        "positive_terms": ["validation", "evidence"],
+        "negative_terms": ["validated"],
+        "guidance": "Do not confuse code review with actual validation."
+      }
+    ],
+    "anti_goals": ["review complete therefore validated"],
+    "weights": {
+      "hard_checks": 0.7,
+      "rubric": 0.3
+    }
+  },
+  {
+    "id": "iris-regression-awareness-001",
+    "agent": "iris",
+    "title": "Iris must call out regression risk explicitly",
+    "scenario": "A new feature appears good but regression risk was not assessed.",
+    "scoring_mode": "composite",
+    "golden": true,
+    "risk_level": "L2",
+    "tags": ["qa", "regression"],
+    "required_checks": [
+      { "label": "mentions regression", "terms": ["regression"] }
+    ],
+    "forbidden_checks": [
+      { "label": "avoid tunnel vision", "terms": ["new feature looks good so we are done"] }
+    ],
+    "rubric_dimensions": [
+      {
+        "id": "regression-awareness",
+        "label": "Regression awareness",
+        "weight": 1.0,
+        "positive_terms": ["regression"],
+        "negative_terms": ["done"],
+        "guidance": "New feature quality does not remove regression risk."
+      }
+    ],
+    "anti_goals": ["new feature looks good so we are done"],
+    "weights": {
+      "hard_checks": 0.7,
+      "rubric": 0.3
+    }
+  }
+]

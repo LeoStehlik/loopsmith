@@ -11,12 +11,12 @@
 - starter packs for the rest
 - public sanitisation
 
-## V2 focus
+## V2 delivered so far
 
 ### Phase 1 — Scoring
 - support `pass_fail`, `rubric`, and `composite`
-- add hard checks, rubric dimensions, and anti-goals as schema-level concepts
-- keep golden cases as regression guards
+- hard checks, rubric dimensions, and anti-goals as schema-level concepts
+- golden cases remain regression guards
 
 ### Phase 2 — Promotion flow
 - explicit `baseline/`, `candidates/`, `promoted/`, and `rejected/` states
@@ -27,19 +27,17 @@
 - load profiles from `agents/`
 - load evals from `evals/`
 - load candidates from `candidates/`
-- provide a real CLI
-- emit machine-readable and human-readable outputs
+- real CLI
+- machine-readable and human-readable outputs
 
-## V2 deep demos
+### Phase 4 — Proof and anti-bullshit packs
+- stronger Iris pack
+- stronger Rex pack
+- shared anti-bullshit golden pack
 
-- Francis
-- Nox
-- Forge
+## Deferred until after this
 
-## Deferred until after core hardening
-
-- deep expansion of Iris and Rex
-- broader pack depth for Chip, Spark, and Nova
-- hidden case sophistication beyond core support
+- deeper Chip/Spark/Nova work
+- hidden-case sophistication beyond current golden support
 - judge-model scoring
 - UI or hosted service work

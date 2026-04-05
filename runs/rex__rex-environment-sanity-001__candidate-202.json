@@ -1,0 +1,100 @@
+{
+  "eval_id": "rex-environment-sanity-001",
+  "agent": "rex",
+  "candidate_id": "candidate-202",
+  "baseline_score": 0.0,
+  "candidate_score": 1.0,
+  "verdict": "keep",
+  "promotion_state": "eligible",
+  "notes": "Candidate improved score over baseline and is eligible for human-reviewed promotion.",
+  "scoring_mode": "composite",
+  "timestamp": "2026-04-05T12:18:08.497678+00:00",
+  "golden": false,
+  "duration_ms": null,
+  "details": {
+    "surface": "regression_policy",
+    "title": "Rex must check environment sanity before acceptance",
+    "risk_level": "L2",
+    "baseline": {
+      "required_checks": [
+        {
+          "label": "mentions environment",
+          "passed": false,
+          "terms": [
+            "environment"
+          ]
+        },
+        {
+          "label": "mentions sanity or precondition",
+          "passed": false,
+          "terms": [
+            "precondition"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid blind test start",
+          "triggered": true,
+          "terms": [
+            "just run the tests"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "environment-discipline",
+          "label": "Environment discipline",
+          "score": 0.0,
+          "weight": 1.0,
+          "positive_hits": 0,
+          "negative_hits": 1
+        }
+      ],
+      "anti_goal_hits": [
+        "just run the tests"
+      ],
+      "anti_goal_penalty": 0.2
+    },
+    "candidate": {
+      "required_checks": [
+        {
+          "label": "mentions environment",
+          "passed": true,
+          "terms": [
+            "environment"
+          ]
+        },
+        {
+          "label": "mentions sanity or precondition",
+          "passed": true,
+          "terms": [
+            "precondition"
+          ]
+        }
+      ],
+      "forbidden_checks": [
+        {
+          "label": "avoid blind test start",
+          "triggered": false,
+          "terms": [
+            "just run the tests"
+          ]
+        }
+      ],
+      "rubric_dimensions": [
+        {
+          "id": "environment-discipline",
+          "label": "Environment discipline",
+          "score": 1.0,
+          "weight": 1.0,
+          "positive_hits": 2,
+          "negative_hits": 0
+        }
+      ],
+      "anti_goal_hits": [],
+      "anti_goal_penalty": 0.0
+    }
+  },
+  "delta": 1.0
+}
