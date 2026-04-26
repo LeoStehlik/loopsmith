@@ -156,13 +156,14 @@ Loopsmith shipped a real v1 and is now moving through hardening passes. The publ
 
 ## Current deep areas
 
-- Conductor
-- Scout
-- Forge
-- Iris
-- Rex
+Loopsmith is currently deepest in these kinds of agent work:
+- direct response quality
+- research brief quality
+- proof-before-done implementation discipline
+- review verdict quality
+- acceptance and regression reporting honesty
 
-The other agents still ship with lighter starter packs while the core is being hardened.
+The rest of the repo still ships with lighter starter packs while the core patterns are being hardened.
 
 ## Design rules
 
