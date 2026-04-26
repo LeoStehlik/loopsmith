@@ -1,0 +1,10 @@
+TOP LINE: The strongest story is rarely that seven categories all matter equally. A useful research brief should surface the few developments that actually changed the picture and demote the rest to tracker residue.
+
+CORE SIGNAL: Managed workflow systems, coding-factory discipline, and AI control-plane infrastructure may look like separate topics, but they often collapse into one operational story. If the same thesis appears in multiple sections, combine them instead of repeating it.
+
+TRACKER NOTES:
+- incremental ecosystem updates with no strategic change
+- routine release drift without a sharper consequence
+- older themes that are still true but not more true today
+
+OPERATOR EDGE: The value of the brief is not broad coverage. It is helping the operator know what deserves attention now and what can be safely ignored.

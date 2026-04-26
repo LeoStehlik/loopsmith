@@ -1,0 +1,14 @@
+{
+  "id": "candidate-signal-density",
+  "agent": "scout",
+  "eval_id": "scout-anti-sludge-001",
+  "surface": "research_output_policy",
+  "description": "Signal-density candidate for reducing repetitive and over-complete research briefs",
+  "risk_level": "L1",
+  "path": "candidates/scout/research-policy-v3.md",
+  "response_path": "candidates/scout/responses/candidate-signal-density.txt",
+  "metadata": {
+    "kind": "quality-pack",
+    "focus": "research-brief-signal-density"
+  }
+}

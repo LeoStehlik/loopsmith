@@ -31,6 +31,7 @@ Loopsmith shipped a real v1 and is now moving through the next hardening passes.
 10. documented evaluator strategy and selective expansion rules
 11. artifact policy and baseline provenance views
 12. shared packs as first-class objects with metadata
+13. reusable research-brief quality pack pattern for anti-sludge and signal-density tuning
 
 ## Core model
 
@@ -104,6 +105,19 @@ Loopsmith is not just for checking success paths. It is also for catching trust-
 - false completion claims
 - vague QA verdicts
 - other forms of operational bullshit
+
+## Research brief quality packs
+
+Loopsmith can also improve research agents that are technically competent but operationally dull to read.
+
+A research brief quality pack can encode recurring failure modes like:
+- repeated thesis inflation
+- template fatigue across sections
+- weak-topic retention
+- reader-specific scaffolding bloat
+- fake completeness instead of signal density
+
+See `docs/research-brief-quality-pack.md` for the public pattern and `candidates/scout/research-policy-v3.md` for a compact signal-density candidate example.
 
 ## Why the operator views matter
 

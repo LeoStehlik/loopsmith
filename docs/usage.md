@@ -73,3 +73,15 @@ python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by 
 - pack-level review summaries
 - operator views for review, promotion state, and baseline provenance
 - shared packs as first-class objects
+- research-brief quality packs for anti-sludge and signal-density tuning
+
+## Research brief quality example
+
+Scout now also carries a public example of a research-brief signal-density candidate:
+
+- policy: `candidates/scout/research-policy-v3.md`
+- manifest: `candidates/scout/candidate-signal-density.json`
+- sample response: `candidates/scout/responses/candidate-signal-density.txt`
+- pattern note: `docs/research-brief-quality-pack.md`
+
+This is the right Loopsmith shape when a research agent is factually competent but too repetitive, too complete, or too padded to be genuinely useful.
