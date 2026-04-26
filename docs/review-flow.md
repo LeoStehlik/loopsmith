@@ -58,8 +58,8 @@ The provenance view answers:
 ## 6. Promote or reject explicitly
 
 ```bash
-python3 src/cli.py promote --agent francis --candidate candidate-001 --approved-by leo --notes "Approved after review"
-python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by leo --notes "Rejected after review"
+python3 src/cli.py promote --agent conductor --candidate candidate-001 --approved-by reviewer --notes "Approved after review"
+python3 src/cli.py reject --agent forge --candidate candidate-003 --approved-by reviewer --notes "Rejected after review"
 ```
 
 These actions refresh the review queue, promotion index, and baseline provenance automatically.

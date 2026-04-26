@@ -7,7 +7,7 @@ from typing import Any, Dict, Optional
 
 from reporting import ReportFormatter
 
-LOOPSMITH_ROOT = Path("/Users/leos/.openclaw/workspace/loopsmith")
+LOOPSMITH_ROOT = Path(__file__).resolve().parents[1]
 CLI_PATH = LOOPSMITH_ROOT / "src" / "cli.py"
 
 
@@ -90,4 +90,4 @@ class LoopsmithWrapper:
 
 if __name__ == "__main__":
     wrapper = LoopsmithWrapper()
-    print(wrapper.format_telegram_report("nox", wrapper.run_agent_eval("nox")))
+    print(wrapper.format_telegram_report("scout", wrapper.run_agent_eval("scout")))

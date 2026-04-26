@@ -1,0 +1,22 @@
+***RESEARCH BRIEF: LOCAL-FIRST AGENTIC WORKFLOWS***
+***Recency: Hard 72h window (April 12-14, 2026)***
+
+**1. CURRENT STATE: THE "DURABLE LOCAL" SHIFT**
+The paradigm has shifted from ephemeral "chat-and-forget" to **Durable Local-First Orchestration**. The focus is no longer just on running LLMs locally (Ollama/Llama.cpp), but on the *state management* and *lifecycle* of the agents running them. 
+
+**2. OPERATOR HOOKS & EXECUTION LAYER**
+The industry is moving toward "Operator Hooks"—deterministic entry/exit points that allow human operators or system scripts to intercept agent loops without breaking the session.
+- **Hook Implementation:** Emerging patterns (seen in `smolagents` and `openclaw`) involve "Audit Trail Hooks" and "Plugin Hooks" (`before_prompt_build`, `agent_end`). These allow for real-time validation, cost-capping, and safety overrides.
+- **Control Planes:** The "Vercel-ization" of agents (e.g., Lyzr Control Plane) is introducing centralized management for decentralized (local) execution, emphasizing a "Control Plane vs. Data Plane" separation.
+
+**3. KEY ARCHITECTURAL TRENDS (APRIL 2026)**
+- **Isolated Subagent Contexts:** Movement toward `.claude/agents/*.md` style definitions where agents are treated as scoped files/entities rather than just prompt strings.
+- **Hybrid Gateways:** Use of "Agent Gateways" (OpenClaw) to bridge local Ollama instances with external channels (Telegram/Discord) while maintaining the "source of truth" on local disk.
+- **Self-Improving Loops:** Frameworks like Hermes are pushing 24/7 local autonomy, focusing on self-correction loops that run in the background of the user's OS.
+
+**4. ZERO SLUDGE ANALYSIS**
+- **Sludge Removed:** Removal of heavy cloud-dependency for state. State is now local JSON/Markdown.
+- **Efficiency Gain:** Subagent delegation is now handled via file-system triggers rather than complex API orchestration, reducing latency and "prompt drift."
+
+**SUMMARY OUTPUT**
+Local-first is no longer about the *model*, but the *hook*. The current winning stack is: `Local LLM (Ollama)` $\rightarrow$ `Durable Gateway (OpenClaw)` $\rightarrow$ `Scoped Subagents (Markdown-defined)` $\rightarrow$ `Deterministic Operator Hooks`.

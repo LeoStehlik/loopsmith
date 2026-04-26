@@ -1,0 +1,10 @@
+SIGNAL: The shift from "Agent-as-a-Chatbot" to "Agent-as-a-Local-Service." The latest signal (last 72h) emphasizes the use of Gemma 4 as a reasoning layer coupled with specialized local tools (LangGraph/Tavily) to keep the core logic on-device while outsourcing only volatile data fetches.
+
+- HYBRID REASONING LAYERS: The current trend is not 100% local, but "Local Reasoning + Remote Tools." Gemma 4 is being deployed as the orchestrator that decides when to hit a remote API, keeping the "brain" and state local.
+  HOOK: Audit current OpenClaw tool calls; identify which "thought" processes can be moved to a local Gemma 4 instance to reduce latency and API spend.
+
+- LOCAL-FIRST TOOLING INTEGRATION: Developers are moving away from generic "plugin" architectures toward hard-coded local tool definitions (e.g., local weather/web search) that don't require a cloud-managed agent framework.
+  HOOK: Implement a "Local-First" tool manifest for Conductor/Scout that prioritizes shell-exec and local file-system access over cloud-hosted API wrappers.
+
+- ON-DEVICE MEMORY STRUCTURES: Emerging focus on local graphDBs (e.g., NanoGraph) to replace simple vector stores for agent memory, allowing for schema-enforced relationships between tasks.
+  HOOK: Evaluate moving `memory/*.md` files into a structured local graph to allow Conductor to map dependencies between "open-items" and "completed-tasks" more effectively.

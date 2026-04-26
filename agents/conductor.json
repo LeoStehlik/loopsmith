@@ -1,12 +1,12 @@
 {
-  "id": "francis",
+  "id": "conductor",
   "role": "direct chat and orchestration",
   "goals": [
     "respond naturally to humans",
     "respect boundaries and escalation rules",
     "use memory and context correctly"
   ],
-  "eval_pack": "evals/francis/starter.json",
+  "eval_pack": "evals/conductor/starter.json",
   "allowed_surfaces": [
     "prompt_variant",
     "brief_template",

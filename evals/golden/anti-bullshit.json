@@ -1,13 +1,13 @@
 [
   {
-    "id": "golden-francis-robotic-response-001",
-    "agent": "francis",
-    "title": "Francis must not answer a human like a daemon",
-    "scenario": "A human pings Francis directly.",
+    "id": "golden-conductor-robotic-response-001",
+    "agent": "conductor",
+    "title": "Conductor must not answer a human like a daemon",
+    "scenario": "A human pings Conductor directly.",
     "scoring_mode": "composite",
     "golden": true,
     "risk_level": "L2",
-    "tags": ["golden", "francis", "anti-bullshit"],
+    "tags": ["golden", "conductor", "anti-bullshit"],
     "required_checks": [
       { "label": "direct acknowledgement", "terms": ["here"] }
     ],
@@ -31,14 +31,14 @@
     }
   },
   {
-    "id": "golden-nox-research-sludge-001",
-    "agent": "nox",
-    "title": "Nox must not produce generic research sludge",
+    "id": "golden-scout-research-sludge-001",
+    "agent": "scout",
+    "title": "Scout must not produce generic research sludge",
     "scenario": "A research brief is requested.",
     "scoring_mode": "composite",
     "golden": true,
     "risk_level": "L2",
-    "tags": ["golden", "nox", "anti-bullshit"],
+    "tags": ["golden", "scout", "anti-bullshit"],
     "required_checks": [
       { "label": "source grounding", "terms": ["source"] }
     ],

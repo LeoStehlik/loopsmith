@@ -1,0 +1,116 @@
+[
+  {
+    "id": "scout-anti-sludge-001",
+    "agent": "scout",
+    "title": "Anti-Sludge: Eliminate Generic AI Filler",
+    "scenario": "Research brief on a fast-moving AI topic (e.g., Agentic Workflows).",
+    "scoring_mode": "composite",
+    "golden": true,
+    "evaluator": "llm_judge",
+    "risk_level": "L1",
+    "tags": ["slop", "utility"],
+    "required_checks": [
+      { "label": "direct entry", "terms": ["direct", "immediate"] }
+    ],
+    "forbidden_checks": [
+      { "label": "generic landscape filler", "terms": ["rapidly evolving landscape", "it is important to note", "in conclusion", "moreover", "furthermore", "delve deeper"] }
+    ],
+    "rubric_dimensions": [
+      {
+        "id": "signal_density",
+        "label": "Signal Density",
+        "weight": 1.5,
+        "positive_terms": ["specific", "metric", "concrete", "example"],
+        "negative_terms": ["generic", "broad", "overview"],
+        "guidance": "Every sentence must provide new information. No throat-clearing."
+      },
+      {
+        "id": "operator_utility",
+        "label": "Operator Utility",
+        "weight": 1.0,
+        "positive_terms": ["actionable", "hook", "angle"],
+        "negative_terms": ["descriptive", "summary"],
+        "guidance": "Does this provide an angle the operator can actually use for a post or decision?"
+      }
+    ],
+    "anti_goals": ["corporate-speak", "robotic summaries", "redundant adjectives"],
+    "weights": {
+      "hard_checks": 0.3,
+      "rubric": 0.7
+    }
+  },
+  {
+    "id": "scout-source-grounding-001",
+    "agent": "scout",
+    "title": "Freshness: Source Grounding & Recency",
+    "scenario": "Morning brief requiring the latest 24-72h signal.",
+    "scoring_mode": "composite",
+    "golden": true,
+    "risk_level": "L1",
+    "tags": ["freshness", "verification"],
+    "required_checks": [
+      { "label": "recent date mention", "terms": ["2026", "yesterday", "today", "last 48h"] }
+    ],
+    "forbidden_checks": [
+      { "label": "stale citations", "terms": ["2023", "2024"] }
+    ],
+    "rubric_dimensions": [
+      {
+        "id": "recency",
+        "label": "Recency",
+        "weight": 2.0,
+        "positive_terms": ["breaking", "latest", "just released"],
+        "negative_terms": ["historic", "general trend"],
+        "guidance": "The brief is useless if the signal is older than 3 days."
+      },
+      {
+        "id": "source_traceability",
+        "label": "Source Traceability",
+        "weight": 1.0,
+        "positive_terms": ["link", "source", "via"],
+        "negative_terms": ["generally known", "some reports say"],
+        "guidance": "Every claim must be attributable to a specific source."
+      }
+    ],
+    "anti_goals": ["hallucinated dates", "vague recency", "outdated trends"],
+    "weights": {
+      "hard_checks": 0.4,
+      "rubric": 0.6
+    }
+  },
+  {
+    "id": "scout-operator-signal-001",
+    "agent": "scout",
+    "title": "Operator Signal: Actionable Hooks",
+    "scenario": "Transforming research into a high-signal brief for the operator.",
+    "scoring_mode": "composite",
+    "golden": false,
+    "risk_level": "L2",
+    "tags": ["operator", "utility"],
+    "required_checks": [],
+    "forbidden_checks": [],
+    "rubric_dimensions": [
+      {
+        "id": "hook_quality",
+        "label": "Hook Quality",
+        "weight": 1.5,
+        "positive_terms": ["angle", "counter-intuitive", "provocative", "edge"],
+        "negative_terms": ["summary", "bullet list", "overview"],
+        "guidance": "Move from 'Here is what happened' to 'Here is why this matters for your specific angle'."
+      },
+      {
+        "id": "conciseness",
+        "label": "Conciseness",
+        "weight": 1.0,
+        "positive_terms": ["sharp", "dense"],
+        "negative_terms": ["wordy", "verbose"],
+        "guidance": "Maximum signal, minimum tokens."
+      }
+    ],
+    "anti_goals": ["encyclopedic entries", "passive voice", "excessive adjectives"],
+    "weights": {
+      "hard_checks": 0.0,
+      "rubric": 1.0
+    }
+  }
+]

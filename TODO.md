@@ -13,8 +13,8 @@
 - Record promotion decisions durably.
 
 ### 3. Deepen eval packs
-- Expand Francis pack beyond one direct-chat golden case.
-- Expand Nox pack for source freshness, usefulness, and anti-slop checks.
+- Expand Conductor pack beyond one direct-chat golden case.
+- Expand Scout pack for source freshness, usefulness, and anti-slop checks.
 - Expand Forge pack for proof-before-done and non-regression behaviour.
 - Add stronger starter packs for Chip, Spark, Nova, Iris, and Rex.
 

@@ -1,12 +1,12 @@
 {
   "id": "candidate-002",
-  "agent": "nox",
-  "eval_id": "nox-brief-freshness-001",
+  "agent": "scout",
+  "eval_id": "scout-brief-freshness-001",
   "surface": "research_output_policy",
   "description": "Push for freshness, explicit sources, and practical hooks.",
   "risk_level": "L2",
-  "path": "candidates/nox/research-policy-v1.md",
-  "response_path": "candidates/nox/responses/candidate-002.txt",
+  "path": "candidates/scout/research-policy-v1.md",
+  "response_path": "candidates/scout/responses/candidate-002.txt",
   "metadata": {
     "kind": "demo"
   }

@@ -1,0 +1,13 @@
+{
+  "id": "candidate-glm5-final",
+  "agent": "scout",
+  "eval_id": "scout-anti-sludge-001",
+  "surface": "research_output_policy",
+  "description": "Promoted GLM-5 Scout Mode baseline",
+  "risk_level": "L1",
+  "path": "candidates/scout/research-policy-v2.md",
+  "response_path": "candidates/scout/responses/candidate-glm5.txt",
+  "metadata": {
+    "kind": "promoted"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "candidate-release-test",
+  "agent": "scout",
+  "eval_id": "scout-anti-sludge-001",
+  "surface": "research_output_policy",
+  "description": "Live test run of Scout release summary",
+  "risk_level": "L1",
+  "path": "candidates/scout/research-policy-v1.md",
+  "response_path": "candidates/scout/responses/candidate-release-test.txt",
+  "metadata": {
+    "kind": "live-test"
+  }
+}

@@ -1,0 +1,13 @@
+SIGNAL: Local-First Agentic Shift (April 12-15, 2026)
+
+*   **Gemma 4 / OpenClaw Convergence (High Signal)**: Massive shift toward "Laptop as Agent Hub" setups. The current trend is moving away from cloud-orchestrated agents toward local gateways (OpenClaw) running high-parameter local models (Gemma 4 via Ollama).
+    *   **Hook**: Shift from "API-first" to "Owned-Model" architecture; allows full state persistence and zero-latency tool execution without cloud middleware.
+
+*   **The "Orchestrator-CLI" Pattern (Active 72h)**: Emergence of tools like CodeMachine-CLI and the integration of Claude Code/Ollama/CrewAI into unified local workflows. The focus is now on "eliminating agent babysitting" via automated project-context injection.
+    *   **Hook**: Transition from manual prompting to "Zero-Setup" agentic loops where the agent automatically ingests local repo state before the first prompt.
+
+*   **Persistent Memory Layering (Hermes System)**: New focus on decoupled memory systems (e.g., Hermes) that separate short-term session state from long-term durable knowledge in local-first setups.
+    *   **Hook**: Moving beyond RAG toward "Durable Agent State," allowing agents to maintain a consistent "soul" across reboots and different local model swaps.
+
+*   **Hybrid-Local Execution (The "Gateway" Model)**: Trend toward using a local gateway to manage sessions and sub-agent spawning (OpenClaw style), allowing a local "Brain" to coordinate both local (Ollama) and remote (Kimi/Claude) workers.
+    *   **Hook**: Local-First doesn't mean Local-Only; it means Local-Control. The operator owns the session gateway, not the API provider.

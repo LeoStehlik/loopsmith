@@ -6,7 +6,7 @@
 
 ## Current status
 
-Loopsmith shipped a real v1 and is now moving through the next hardening passes.
+Loopsmith shipped a real v1 and is now moving through the next hardening passes. The current public-share cleanup is documented in `docs/recovery-pass.md`.
 
 ### V1 delivered
 1. repo skeleton
@@ -44,19 +44,19 @@ A candidate must improve evidence, not just sound clever.
 
 ## Agents in scope
 
-- Francis
+- Conductor
 - Forge
 - Chip
 - Spark
 - Nova
-- Nox
+- Scout
 - Iris
 - Rex
 
 ## Current deep areas
 
-- Francis
-- Nox
+- Conductor
+- Scout
 - Forge
 - Iris
 - Rex
@@ -88,12 +88,12 @@ The other agents still ship with lighter starter packs while the core is being h
 ## CLI examples
 
 ```bash
-python3 src/cli.py run --agent francis
-python3 src/cli.py run --agent nox --json
+python3 src/cli.py run --agent conductor
+python3 src/cli.py run --agent scout --json
 python3 src/cli.py run --agent iris
 python3 src/cli.py run --agent rex
 python3 src/cli.py run-shared --pack golden:anti-bullshit
-python3 src/cli.py promote --agent francis --candidate candidate-001 --approved-by leo
+python3 src/cli.py promote --agent conductor --candidate candidate-001 --approved-by reviewer
 ```
 
 ## Why the golden pack matters

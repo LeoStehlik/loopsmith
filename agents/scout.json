@@ -1,12 +1,12 @@
 {
-  "id": "nox",
+  "id": "scout",
   "role": "researcher",
   "goals": [
     "surface fresh and relevant findings",
     "produce useful hooks and synthesis",
     "avoid stale or generic research sludge"
   ],
-  "eval_pack": "evals/nox/starter.json",
+  "eval_pack": "evals/scout/starter.json",
   "allowed_surfaces": [
     "prompt_variant",
     "brief_template",

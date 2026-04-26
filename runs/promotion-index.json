@@ -11,14 +11,14 @@
       "path": "baseline/forge/golden-forge-false-completion-001.txt"
     },
     {
-      "agent": "francis",
-      "eval_id": "francis-human-response-001",
-      "path": "baseline/francis/francis-human-response-001.txt"
+      "agent": "conductor",
+      "eval_id": "conductor-human-response-001",
+      "path": "baseline/conductor/conductor-human-response-001.txt"
     },
     {
-      "agent": "francis",
-      "eval_id": "golden-francis-robotic-response-001",
-      "path": "baseline/francis/golden-francis-robotic-response-001.txt"
+      "agent": "conductor",
+      "eval_id": "golden-conductor-robotic-response-001",
+      "path": "baseline/conductor/golden-conductor-robotic-response-001.txt"
     },
     {
       "agent": "iris",
@@ -41,14 +41,19 @@
       "path": "baseline/iris/iris-review-vs-validation-001.txt"
     },
     {
-      "agent": "nox",
-      "eval_id": "golden-nox-research-sludge-001",
-      "path": "baseline/nox/golden-nox-research-sludge-001.txt"
+      "agent": "scout",
+      "eval_id": "golden-scout-research-sludge-001",
+      "path": "baseline/scout/golden-scout-research-sludge-001.txt"
     },
     {
-      "agent": "nox",
-      "eval_id": "nox-brief-freshness-001",
-      "path": "baseline/nox/nox-brief-freshness-001.txt"
+      "agent": "scout",
+      "eval_id": "scout-anti-sludge-001",
+      "path": "baseline/scout/scout-anti-sludge-001.txt"
+    },
+    {
+      "agent": "scout",
+      "eval_id": "scout-brief-freshness-001",
+      "path": "baseline/scout/scout-brief-freshness-001.txt"
     },
     {
       "agent": "rex",
@@ -66,7 +71,27 @@
       "path": "baseline/rex/rex-layered-reporting-001.txt"
     }
   ],
-  "promoted": [],
+  "promoted": [
+    {
+      "agent": "scout",
+      "candidate": "candidate-glm5",
+      "path": "promoted/scout/candidate-glm5.json"
+    }
+  ],
   "rejected": [],
-  "ledger_records": []
+  "ledger_records": [
+    {
+      "candidate_id": "candidate-glm5",
+      "agent": "scout",
+      "eval_ids": [
+        "scout-anti-sludge-001"
+      ],
+      "status": "promoted",
+      "approved_by": "reviewer",
+      "approved_at": "2026-04-14T22:22:01.663279+00:00",
+      "final_disposition": "promoted",
+      "notes": "Promoted to S-Tier Researcher based on Battle Royale results. GLM-5 chosen for strategic synthesis.",
+      "timestamp": "2026-04-14T22:22:01.663437+00:00"
+    }
+  ]
 }

@@ -1,0 +1,30 @@
+***SCOUT MODE RESEARCH BRIEF: Local-First Agentic Workflows (April 2026)***
+
+**1. CURRENT STATE: THE "LOCAL-FIRST" PARADIGM**
+The ecosystem has shifted from "running a model locally" to "running an agentic runtime locally." Local-first is no longer just about privacy; it's about **latency, durability, and the elimination of API-cost anxiety**.
+
+*   **The Stack:** The dominant local pattern is now **Ollama/LM Studio $\rightarrow$ Agent Runtime (Claude Code/CrewAI/Custom) $\rightarrow$ Local Tooling**.
+*   **Model Performance:** Qwen 3.5 and Llama 3.3/4-class models have reached a "utility threshold" where they can reliably execute multi-step tool-use loops (e.g., file system edits, shell execution) without the "hallucination drift" seen in 2024 models.
+*   **The "Vibe Coding" Transition:** There is a visible move away from "prompt-and-pray" toward **Agentic Engineering**—treating the agent as a system with explicit hooks, rules, and state management (e.g., the emergence of "Workflow OS" patterns like *Clarc*).
+
+**2. CLOUD-LOCAL HYBRIDS: THE NEW FRONTIER**
+A new category of "Cloud-Local" providers has emerged to solve the "Cold Start vs. Hardware Cost" dilemma.
+
+*   **Persistent Sandbox Platforms (e.g., Blaxel):** These provide "infinite" secure sandboxes on automatic standby. They offer the developer experience of the cloud (instant scale, zero config) but the behavior of local-first (persistent state, low latency, dedicated context).
+*   **Durable Runtimes (e.g., Agentspan):** Shifting the "state" to the server while the "execution" stays in the process. This prevents the "death by crash" common in purely local long-running agent loops.
+*   **The Value Prop:** These providers are targeting the gap where a local MacBook is too slow for 10 parallel agents, but a standard Cloud API is too disconnected from the local file system and too expensive for iterative loops.
+
+**3. COMPARATIVE ANALYSIS: GEMMA 4/QWEN VS. CLOUD-LOCAL POTENTIAL**
+
+| Dimension | Current Local (Gemma 4 / Qwen) | Cloud-Local Hybrid Potential |
+| :--- | :--- | :--- |
+| **Latency** | Ultra-low (on-device) | Low-to-Medium (network hop, but cached) |
+| **Context Window** | Limited by VRAM/System RAM | Virtually unlimited via server-side state |
+| **Durability** | Fragile (process crash = loss) | High (checkpointed state/persistent sandboxes) |
+| **Scale** | Single-thread/limited concurrency | Massive parallel agent swarms |
+| **Privacy** | Absolute (Air-gapped possible) | Trust-based (Encrypted sandboxes) |
+
+**4. FINAL SIGNAL**
+The "Local-First" movement is evolving into **"Distributed Localism."** While Gemma 4 and Qwen provide the "brain" locally, the "body" (the environment where the agent lives) is migrating toward hybrid providers that offer **persistent, scalable sandboxes**. 
+
+**Verdict:** Pure local is for privacy/basic tasks; Cloud-Local is for "Production Agentic Engineering" where durability and scale are non-negotiable.

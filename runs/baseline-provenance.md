@@ -18,17 +18,17 @@ _Canonical current-state view: where each current baseline came from._
 - Approved at: `unknown`
 - Last rejected candidate: `none`
 
-## francis / francis-human-response-001
+## conductor / conductor-human-response-001
 
-- Baseline: `baseline/francis/francis-human-response-001.txt`
+- Baseline: `baseline/conductor/conductor-human-response-001.txt`
 - Current source candidate: `unknown`
 - Approved by: `unknown`
 - Approved at: `unknown`
 - Last rejected candidate: `none`
 
-## francis / golden-francis-robotic-response-001
+## conductor / golden-conductor-robotic-response-001
 
-- Baseline: `baseline/francis/golden-francis-robotic-response-001.txt`
+- Baseline: `baseline/conductor/golden-conductor-robotic-response-001.txt`
 - Current source candidate: `unknown`
 - Approved by: `unknown`
 - Approved at: `unknown`
@@ -66,17 +66,25 @@ _Canonical current-state view: where each current baseline came from._
 - Approved at: `unknown`
 - Last rejected candidate: `none`
 
-## nox / golden-nox-research-sludge-001
+## scout / golden-scout-research-sludge-001
 
-- Baseline: `baseline/nox/golden-nox-research-sludge-001.txt`
+- Baseline: `baseline/scout/golden-scout-research-sludge-001.txt`
 - Current source candidate: `unknown`
 - Approved by: `unknown`
 - Approved at: `unknown`
 - Last rejected candidate: `none`
 
-## nox / nox-brief-freshness-001
+## scout / scout-anti-sludge-001
 
-- Baseline: `baseline/nox/nox-brief-freshness-001.txt`
+- Baseline: `baseline/scout/scout-anti-sludge-001.txt`
+- Current source candidate: `candidate-glm5`
+- Approved by: `reviewer`
+- Approved at: `2026-04-14T22:22:01.663279+00:00`
+- Last rejected candidate: `none`
+
+## scout / scout-brief-freshness-001
+
+- Baseline: `baseline/scout/scout-brief-freshness-001.txt`
 - Current source candidate: `unknown`
 - Approved by: `unknown`
 - Approved at: `unknown`

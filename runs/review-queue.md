@@ -26,6 +26,16 @@ _Canonical current-state view: what needs attention next._
 - `iris:candidate-101` (source: `iris`)
 - `iris:candidate-102` (source: `iris`)
 - `iris:candidate-103` (source: `iris`)
+- `scout:candidate-scout-v1` (source: `scout`)
+- `scout:candidate-fresh-test` (source: `scout`)
+- `scout:candidate-release-test` (source: `scout`)
+- `scout:candidate-scout-v1` (source: `scout`)
+- `scout:candidate-fresh-test` (source: `scout`)
+- `scout:candidate-release-test` (source: `scout`)
+- `scout:candidate-scout-v1` (source: `scout`)
+- `scout:candidate-test-3` (source: `scout`)
+- `scout:candidate-glm5` (source: `scout`)
+- `scout:candidate-kimi` (source: `scout`)
 - `rex:candidate-201` (source: `rex`)
 - `rex:candidate-202` (source: `rex`)
 - `rex:candidate-203` (source: `rex`)
@@ -47,12 +57,27 @@ _Canonical current-state view: what needs attention next._
 
 ## Review
 
-- None
+- `scout:candidate-release-test` (source: `scout`)
+- `scout:candidate-release-test` (source: `scout`)
+- `scout:candidate-release-test` (source: `scout`)
+- `scout:candidate-scout-v1` (source: `scout`)
+- `scout:candidate-scout-v1` (source: `scout`)
+- `scout:candidate-scout-v1` (source: `scout`)
+- `scout:candidate-test-2` (source: `scout`)
+- `scout:candidate-minimax` (source: `scout`)
 
 ## Discarded
 
-- None
+- `scout:candidate-sludge` (source: `scout`)
+- `scout:candidate-fresh-test` (source: `scout`)
+- `scout:candidate-release-test` (source: `scout`)
+- `scout:candidate-sludge` (source: `scout`)
+- `scout:candidate-sludge` (source: `scout`)
 
 ## Golden Regressions
 
-- None
+- `scout:scout-anti-sludge-001:candidate-sludge` (source: `scout`)
+- `scout:scout-anti-sludge-001:candidate-fresh-test` (source: `scout`)
+- `scout:scout-anti-sludge-001:candidate-release-test` (source: `scout`)
+- `scout:scout-anti-sludge-001:candidate-sludge` (source: `scout`)
+- `scout:scout-anti-sludge-001:candidate-sludge` (source: `scout`)

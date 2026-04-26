@@ -1,6 +1,6 @@
 {
-  "eval_id": "nox-brief-freshness-001",
-  "agent": "nox",
+  "eval_id": "scout-brief-freshness-001",
+  "agent": "scout",
   "candidate_id": "candidate-002",
   "baseline_score": 0.25,
   "candidate_score": 1.0,

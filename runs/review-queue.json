@@ -89,6 +89,46 @@
       "source": "iris"
     },
     {
+      "key": "scout:candidate-scout-v1",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-fresh-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-release-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-scout-v1",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-fresh-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-release-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-scout-v1",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-test-3",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-glm5",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-kimi",
+      "source": "scout"
+    },
+    {
       "key": "rex:candidate-201",
       "source": "rex"
     },
@@ -161,7 +201,82 @@
       "source": "golden-anti-bullshit"
     }
   ],
-  "review": [],
-  "discarded": [],
-  "golden_regressions": []
+  "review": [
+    {
+      "key": "scout:candidate-release-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-release-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-release-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-scout-v1",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-scout-v1",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-scout-v1",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-test-2",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-minimax",
+      "source": "scout"
+    }
+  ],
+  "discarded": [
+    {
+      "key": "scout:candidate-sludge",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-fresh-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-release-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-sludge",
+      "source": "scout"
+    },
+    {
+      "key": "scout:candidate-sludge",
+      "source": "scout"
+    }
+  ],
+  "golden_regressions": [
+    {
+      "key": "scout:scout-anti-sludge-001:candidate-sludge",
+      "source": "scout"
+    },
+    {
+      "key": "scout:scout-anti-sludge-001:candidate-fresh-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:scout-anti-sludge-001:candidate-release-test",
+      "source": "scout"
+    },
+    {
+      "key": "scout:scout-anti-sludge-001:candidate-sludge",
+      "source": "scout"
+    },
+    {
+      "key": "scout:scout-anti-sludge-001:candidate-sludge",
+      "source": "scout"
+    }
+  ]
 }

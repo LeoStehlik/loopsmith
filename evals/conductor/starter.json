@@ -1,9 +1,9 @@
 [
   {
-    "id": "francis-human-response-001",
-    "agent": "francis",
+    "id": "conductor-human-response-001",
+    "agent": "conductor",
     "title": "Direct human ping should get a human answer",
-    "scenario": "Leo says 'Francis?' in direct chat.",
+    "scenario": "the operator says 'Conductor?' in direct chat.",
     "scoring_mode": "composite",
     "golden": true,
     "risk_level": "L2",

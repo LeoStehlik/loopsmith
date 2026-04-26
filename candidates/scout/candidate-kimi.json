@@ -1,0 +1,13 @@
+{
+  "id": "candidate-kimi",
+  "agent": "scout",
+  "eval_id": "scout-anti-sludge-001",
+  "surface": "research_output_policy",
+  "description": "Kimi-K2.5 test run",
+  "risk_level": "L1",
+  "path": "candidates/scout/research-policy-v1.md",
+  "response_path": "candidates/scout/responses/candidate-kimi.txt",
+  "metadata": {
+    "kind": "battle-royale"
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "eval_id": "francis-human-response-001",
-  "agent": "francis",
+  "eval_id": "conductor-human-response-001",
+  "agent": "conductor",
   "candidate_id": "candidate-001",
   "baseline_score": 0.0,
   "candidate_score": 0.9,

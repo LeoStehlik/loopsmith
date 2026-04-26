@@ -1,0 +1,27 @@
+### OpenClaw Release Brief: 2026.4.8 → 2026.4.14
+
+**1. Ollama & Local Models**
+*   **Performance & Reliability:** Fixed "slow run" cutoffs by forwarding embedded-run timeouts into global stream tuning; slow local runs no longer inherit default cutoffs.
+*   **Accuracy:** Added `stream_options.include_usage` for streaming completions to stop bogus token counts from triggering premature context compaction.
+*   **Vision/Media:** Fixed media-tool registry lookups to normalize model refs, preventing valid Ollama vision models from being rejected as "unknown."
+*   **UX/Config:** 
+    *   Added caching for `/api/show` metadata to speed up model picker refreshes.
+    *   Enabled optional thinking output for models using the native `api: "ollama"` path.
+    *   Improved preflight hints for self-hosted models to point to `agents.defaults.contextTokens` rather than suggesting larger models.
+
+**2. Telegram**
+*   **Forum/Topics:** Now surfaces and persists human-readable topic names in agent context, prompt metadata, and plugin hooks (learned via service messages).
+*   **Operational Fixes:** 
+    *   Resolved a deadlock where plugin approval buttons were blocked by the agent turn; these now run on a separate sequentializer lane.
+    *   Fixed "leaking" Codex planning chatter into DMs; commentary-only payloads are now suppressed when no `final_answer` is present.
+    *   Corrected session initialization for topic-scoped transcripts to prevent alternating between bare and qualified files.
+    *   Heartbeat replies now correctly stay within the bound forum topic rather than dropping into the group root.
+*   **Setup:** Fixed a critical npm build bug where startup crashed due to missing secret contract files in `dist/extensions/telegram/src`.
+
+**3. Codex & GPT Models**
+*   **GPT-5.4 Support:** Added forward-compat for `gpt-5.4-pro` (including pricing/limits) and canonicalized legacy `gpt-5.4-codex` aliases.
+*   **Architecture:** Introduced a bundled Codex provider and app-server harness; `codex/gpt-*` models now use dedicated auth, native threads, and discovery, separating them from the standard `openai/gpt-*` path.
+*   **Reasoning/Thinking:** 
+    *   Mapped `minimal` thinking to OpenAI's `low` reasoning effort for GPT-5.4.
+    *   Enabled `xhigh` reasoning for `github-copilot/gpt-5.4`.
+*   **Stability:** Fixed a silent failure where custom models were dropped from `models.json` because the Codex provider catalog was missing the `apiKey` field.

@@ -19,18 +19,18 @@
       "last_rejected_candidate": null
     },
     {
-      "agent": "francis",
-      "eval_id": "francis-human-response-001",
-      "baseline_path": "baseline/francis/francis-human-response-001.txt",
+      "agent": "conductor",
+      "eval_id": "conductor-human-response-001",
+      "baseline_path": "baseline/conductor/conductor-human-response-001.txt",
       "current_source_candidate": null,
       "approved_by": null,
       "approved_at": null,
       "last_rejected_candidate": null
     },
     {
-      "agent": "francis",
-      "eval_id": "golden-francis-robotic-response-001",
-      "baseline_path": "baseline/francis/golden-francis-robotic-response-001.txt",
+      "agent": "conductor",
+      "eval_id": "golden-conductor-robotic-response-001",
+      "baseline_path": "baseline/conductor/golden-conductor-robotic-response-001.txt",
       "current_source_candidate": null,
       "approved_by": null,
       "approved_at": null,
@@ -73,18 +73,27 @@
       "last_rejected_candidate": null
     },
     {
-      "agent": "nox",
-      "eval_id": "golden-nox-research-sludge-001",
-      "baseline_path": "baseline/nox/golden-nox-research-sludge-001.txt",
+      "agent": "scout",
+      "eval_id": "golden-scout-research-sludge-001",
+      "baseline_path": "baseline/scout/golden-scout-research-sludge-001.txt",
       "current_source_candidate": null,
       "approved_by": null,
       "approved_at": null,
       "last_rejected_candidate": null
     },
     {
-      "agent": "nox",
-      "eval_id": "nox-brief-freshness-001",
-      "baseline_path": "baseline/nox/nox-brief-freshness-001.txt",
+      "agent": "scout",
+      "eval_id": "scout-anti-sludge-001",
+      "baseline_path": "baseline/scout/scout-anti-sludge-001.txt",
+      "current_source_candidate": "candidate-glm5",
+      "approved_by": "reviewer",
+      "approved_at": "2026-04-14T22:22:01.663279+00:00",
+      "last_rejected_candidate": null
+    },
+    {
+      "agent": "scout",
+      "eval_id": "scout-brief-freshness-001",
+      "baseline_path": "baseline/scout/scout-brief-freshness-001.txt",
       "current_source_candidate": null,
       "approved_by": null,
       "approved_at": null,
