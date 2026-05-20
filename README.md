@@ -1,5 +1,7 @@
 # Loopsmith
 
+![Tests](https://github.com/LeoStehlik/loopsmith/actions/workflows/test.yml/badge.svg)
+
 **Loopsmith** helps you improve agents the way you improve software: test changes, compare outputs, keep only what holds up.
 
 **Tagline:** Improve agents the way you improve software: define the eval, test the candidate, keep only what survives evidence.
