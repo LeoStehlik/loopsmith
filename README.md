@@ -75,6 +75,13 @@ Loopsmith is useful for recurring failure modes such as:
 - cumulative regression dishonesty
 - repetitive scaffolding that hides weak signal
 
+
+## Related Tools
+
+- [Proof Loop](https://github.com/LeoStehlik/proof-loop) - task-level completion protocol. Loopsmith is the next step when the same proof failure keeps recurring.
+- [Sovereign Brain](https://github.com/LeoStehlik/decoupled-agent-memory) - source-backed memory and review workflow for long-running agents; useful context for eval decisions and agent behaviour history.
+- [Brief Master](https://github.com/LeoStehlik/brief-master) - improves the briefs that become eval inputs, candidate policies, or Proof Loop specs.
+
 ## Repo layout
 
 - `agents/` — agent profiles
