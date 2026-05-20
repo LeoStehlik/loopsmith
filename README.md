@@ -51,6 +51,10 @@ Each loop compares:
 
 A candidate must improve evidence, not just sound clever.
 
+## Credibility Artifact
+
+A concrete before/after eval example lives at [`examples/before-after-eval.md`](examples/before-after-eval.md). It shows how a recurring research-brief quality problem becomes a baseline-vs-candidate eval with review artifacts.
+
 ## One concrete example
 
 A research agent can be factually competent but still painful to read. The brief may repeat the same thesis across sections, keep weak topics alive, and bury the useful signal under repetitive scaffolding.
