@@ -62,7 +62,7 @@ A candidate must improve evidence, not just sound clever.
 
 ![Animated terminal demo: Loopsmith smoke test and before/after eval example](assets/loopsmith-terminal-demo.svg)
 
-A concrete before/after eval example lives at [`examples/before-after-eval.md`](examples/before-after-eval.md). It shows how a recurring research-brief quality problem becomes a baseline-vs-candidate eval with review artifacts.
+See [`examples/README.md`](examples/README.md) for the example index, or jump straight to [`examples/before-after-eval.md`](examples/before-after-eval.md). It shows how a recurring research-brief quality problem becomes a baseline-vs-candidate eval with review artifacts.
 
 ## One concrete example
 
