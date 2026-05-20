@@ -60,6 +60,8 @@ A candidate must improve evidence, not just sound clever.
 
 ## Credibility Artifact
 
+![Animated terminal demo: Loopsmith smoke test and before/after eval example](assets/loopsmith-terminal-demo.svg)
+
 A concrete before/after eval example lives at [`examples/before-after-eval.md`](examples/before-after-eval.md). It shows how a recurring research-brief quality problem becomes a baseline-vs-candidate eval with review artifacts.
 
 ## One concrete example
