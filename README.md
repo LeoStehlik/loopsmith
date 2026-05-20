@@ -4,6 +4,7 @@
 
 **Tagline:** Improve agents the way you improve software: define the eval, test the candidate, keep only what survives evidence.
 
+Loopsmith is harness-agnostic. It works with OpenClaw, Hermes, Codex, OpenCode, Claude Code, or any other agent setup that can produce baseline/candidate outputs and read/write repo files.
 
 ## Loopsmith vs Proof Loop
 
@@ -13,7 +14,7 @@ Proof Loop governs a single task: frozen acceptance criteria, separate verifier,
 
 Loopsmith improves repeated agent behaviour over time: baseline vs candidate, eval packs, scoring, promotion/rejection, and a ledger.
 
-Use Proof Loop inside a task. Use Loopsmith when the same failure pattern keeps coming back and the agent, prompt, policy, or evaluator itself needs measurable improvement. See [`docs/proof-loop-relationship.md`](docs/proof-loop-relationship.md).
+Use Proof Loop inside a task. Use Loopsmith when the same failure pattern keeps coming back and the agent, prompt, policy, or evaluator itself needs measurable improvement. Both are intentionally file/protocol based, so they can travel across harnesses instead of depending on one vendor runtime. See [`docs/proof-loop-relationship.md`](docs/proof-loop-relationship.md).
 
 ## What it is for
 
