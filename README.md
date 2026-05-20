@@ -4,6 +4,17 @@
 
 **Tagline:** Improve agents the way you improve software: define the eval, test the candidate, keep only what survives evidence.
 
+
+## Loopsmith vs Proof Loop
+
+Loopsmith is not the sprint protocol itself. That is [`proof-loop`](https://github.com/LeoStehlik/proof-loop).
+
+Proof Loop governs a single task: frozen acceptance criteria, separate verifier, durable verdict artifacts, and no self-certified done claims.
+
+Loopsmith improves repeated agent behaviour over time: baseline vs candidate, eval packs, scoring, promotion/rejection, and a ledger.
+
+Use Proof Loop inside a task. Use Loopsmith when the same failure pattern keeps coming back and the agent, prompt, policy, or evaluator itself needs measurable improvement. See [`docs/proof-loop-relationship.md`](docs/proof-loop-relationship.md).
+
 ## What it is for
 
 Use Loopsmith when an agent is producing output that is:
@@ -75,7 +86,7 @@ Loopsmith is useful for recurring failure modes such as:
 - `policies/` — mutation boundaries and promotion rules
 - `runs/` — generated run logs, summaries, review queue, promotion index, and provenance views
 - `src/` — schemas, scoring, loaders, runner, CLI, summaries, operator views
-- `docs/` — design notes, usage, review flow, artifact policy, evaluator strategy, shared-pack guidance, sanitisation notes, and pack patterns
+- `docs/` — design notes, usage, review flow, artifact policy, evaluator strategy, Proof Loop relationship, shared-pack guidance, sanitisation notes, and pack patterns
 
 ## CLI examples
 
